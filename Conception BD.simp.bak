@@ -16,7 +16,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>422</value>
+        <value>425</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -61,6 +61,16 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
         <phone-number />
         <description />
         <color>#00000000</color>
+        <working-schedule uid="ws-ac854bee122a4cbb8d4da1ad9ce95457" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Raphael</first-name>
+        <last-name>Gagnon</last-name>
+        <role />
+        <e-mail>raphaelgagnon@cegep-chicoutimi.qc.ca</e-mail>
+        <phone-number />
+        <description />
+        <color>#00000000</color>
       </person>
     </persons>
     <teams />
@@ -92,7 +102,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-class" id="p852558b5290148719f4c079130efa69a_612102942" name="Model Conceptuel" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-100,-100">
+      <diagram type="uml-class" id="p852558b5290148719f4c079130efa69a_612102942" name="Model Conceptuel" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-320,40">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -154,6 +164,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="3312697ea68a498d908cf19c64b06073" />
               <owned-item ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
               <owned-item ref="449fc5b5702344fe959d3b69fb2316bd" />
+              <owned-item ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
             </owned-items>
             <attributes>
               <attribute id="adffa740103c24f888f5409491c682119560" cid="PROP005" name="noprogramme" creation-date="04/29/2022 09:46:28" property-ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
@@ -329,44 +340,44 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           </item>
           <item id="4e626ee371554a3789de91f2560fd22b" cid="REL001" type="relationship" name="contient" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:53:18" from="bb9a0e81f9ee4194be2467e9aa0e4ee9" to="861f25e7dc3848e98bb9117598e232b3" visibility="package">
             <relation from="bb9a0e81f9ee4194be2467e9aa0e4ee9" to="861f25e7dc3848e98bb9117598e232b3" derived="false">
-              <start-role id="umlar-7a80f485-f87b-495c-bb7a-059aa660006a" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-537ff1ff-ce9e-4998-8356-2aefb1907020" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-6e20febc-9d85-48e9-92eb-13ac2dad85bb" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-6b6eef28-bd7b-4c5a-897a-8d1c2f31ea73" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="99aff8d0c9f9424fa2d26e66b2478706" cid="REL002" type="relationship" name="est composé de" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:54:59" from="861f25e7dc3848e98bb9117598e232b3" to="024ce99c18f4460f88391e246620a7a3" visibility="package">
             <relation from="861f25e7dc3848e98bb9117598e232b3" to="024ce99c18f4460f88391e246620a7a3" derived="false">
-              <start-role id="umlar-745d7155-2455-4c1e-bdfb-cc48acad594f" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-194ddb8e-f5db-4c24-a58c-8a2ec1ab7920" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-af01fcbc-2079-40a0-ac6b-e6f9ead272e9" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-6e18ce11-5f83-4c60-99c3-61863bf4d3da" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="b9ac1196933f4686a0cff2d397b870e3" cid="REL003" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:56:55" from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" derived="false">
-              <start-role id="umlar-1cb727f1-5efb-4fea-8c4b-d5afdaece1a9" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-a92be81f-db49-459c-912b-637b1174e97a" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-e74d9644-0193-4bcd-b8e3-fbc661ad92f8" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-7da2d47d-9cc6-4c7c-b38e-e2f38bac31ae" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="8bd416d9c0ff4282827321f179a51747" cid="REL004" type="relationship" name="est affecté" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:57:13" from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" derived="false">
-              <start-role id="umlar-bb300b01-0471-481b-be2c-ee00bb4be307" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-4ef7f85c-5ad0-4ff0-b5a8-4ac759fb06c2" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-fd3a8b85-e1a9-4adf-9ab5-9c4e1aace0a4" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-dd78d64b-f7d3-4ec5-a785-1fce720e8bcd" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="1d6417868a9c490182f9fed46c48e156" cid="REL005" type="relationship" name="peut avoir" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:58:27" from="83e0dbd80dd14392bf739401aa90a922" to="6d94d56ddfab4895adc134d1b85505d1" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="6d94d56ddfab4895adc134d1b85505d1" derived="false">
-              <start-role id="umlar-a3c78505-7f71-4456-868e-a23566b9176d" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-cf200019-01ce-41b3-a39f-497b8164e217" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-9be50849-dd2e-4f17-b3bc-ba6f04abc047" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-9859acb4-71db-415c-9d82-a27a1761e00b" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="53aede6138b943f7b6845ea8adf293f7" cid="REL006" type="relationship" name="a" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:02:26" from="83e0dbd80dd14392bf739401aa90a922" to="381dac80e1924e13944e928086c105c8" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="381dac80e1924e13944e928086c105c8" derived="false">
-              <start-role id="umlar-f794aa3f-2205-4e86-bad7-b7330223be64" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-495eecfa-7bc3-4945-8519-fca8636aec9e" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-392bc404-b952-41ff-a3a2-3d01a5bd5c88" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-8fc9eb19-a26c-4496-8716-a2986a494eac" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="241bc5459d3a4a368e5089c228014b2f" cid="REL007" type="relationship" name="est assignée" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:03:39" from="83e0dbd80dd14392bf739401aa90a922" to="c2055fc74b0b46b69731cdab9e0e7c1b" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="c2055fc74b0b46b69731cdab9e0e7c1b" derived="false">
-              <start-role id="umlar-c1cee80b-04aa-4f02-b298-7a6795ed9dd2" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-131946da-dfd5-4594-b569-fc5d0382a2f0" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-90132f81-5a67-4bc8-a9ee-65997f0bcf8e" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-a028defe-7361-4ef5-aec2-d3ddb5b26abe" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
         </abstract-items>
