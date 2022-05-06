@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OrganisateurScolaire.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Server=sql.decinfo-cchic.ca;port=33306;Database=h22_ebd_projet1;Uid=dev-1532463;Pwd=Info2020;</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
