@@ -1,0 +1,66 @@
+USE h22_ebd_projet1;
+
+DROP TABLE IF EXISTS tblSessions;
+CREATE TABLE tblSessions(
+idSession INT PRIMARY KEY AUTO_INCREMENT,
+noProgramme VARCHAR(6),
+annee SMALLINT NOT NULL,
+saison VARCHAR(7) NOT NULL
+);
+
+DROP TABLE IF EXISTS tblProgrammes;
+CREATE TABLE tblProgrammes(
+noProgramme VARCHAR(6) PRIMARY KEY,
+nomProgramme VARCHAR(50) NOT NULL
+);
+
+DROP TABLE IF EXISTS tblProgrammeCours;
+CREATE TABLE tblProgrammeCours(
+noProgramme VARCHAR(6),
+noCours VARCHAR(15),
+PRIMARY KEY(noProgramme, noCours)
+);
+
+DROP TABLE IF EXISTS tblCours;
+CREATE TABLE tblCours(
+noCours VARCHAR(15) PRIMARY KEY,
+nomCours VARCHAR(50) NOT NULL,
+description VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS tblTaches;
+CREATE TABLE tblTaches(
+idTache INT PRIMARY KEY AUTO_INCREMENT,
+noCours VARCHAR(15),
+idStatut INT,
+titre VARCHAR(32) NOT NULL,
+dateDebut DATETIME,
+dateFin DATETIME NOT NULL,
+description VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS tblStatus;
+CREATE TABLE tblStatus(
+idStatut INT PRIMARY KEY AUTO_INCREMENT,
+valeur VARCHAR(16) NOT NULL
+);
+
+DROP TABLE IF EXISTS tblRappels;
+CREATE TABLE tblRappels(
+idRappel INT PRIMARY KEY AUTO_INCREMENT,
+idTache INT,
+titre VARCHAR(32) NOT NULL,
+message VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS tblLabelTaches;
+CREATE TABLE tblLabelTaches(
+idLabel INT,
+idTache INT
+);
+
+DROP TABLE IF EXISTS tblLabel;
+CREATE TABLE tblLabel(
+idLabel INT PRIMARY KEY AUTO_INCREMENT,
+valeur VARCHAR(16) NOT NULL
+);
