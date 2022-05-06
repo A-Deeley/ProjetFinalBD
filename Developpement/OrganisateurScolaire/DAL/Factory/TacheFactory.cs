@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrganisateurScolaire.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace OrganisateurScolaire.DAL.Factory
     /// <summary>
     /// Factory to handle Tache object manipulation (tblCategories)
     /// </summary>
-    public class TacheFactory
+    public class TacheFactory : FactoryBase
     {
     }
 }

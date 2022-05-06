@@ -21,7 +21,7 @@ namespace OrganisateurScolaire.DAL
             return new QueryBuilder(connection);
         }
         
-        public QueryBuilder AddParameterWithValue(string parameterName, object value)
+        public QueryBuilder AddParameter(string parameterName, object value)
         {
             _command.Parameters.AddWithValue(parameterName, value);
             return this;
