@@ -11,5 +11,9 @@ namespace OrganisateurScolaire.Models
     /// </summary>
     public class Session
     {
+        public int ID { get; private set; }
+        public Programme Programme { get; private set; }
+        public int Annee { get; private set; }
+        public string Saison { get; private set; }
     }
 }

@@ -11,5 +11,7 @@ namespace OrganisateurScolaire.Models
     /// </summary>
     public class Statut
     {
+        public int ID { get; private set; }
+        public string Etat { get; private set; }
     }
 }
