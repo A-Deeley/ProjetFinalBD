@@ -16,7 +16,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>764</value>
+        <value>776</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -24,7 +24,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>50</value>
+        <value>52</value>
       </counter>
       <counter>
         <item-type type-id="relationship" type="Association" />
@@ -76,6 +76,16 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
         <description />
         <color>#00000000</color>
         <working-schedule uid="ws-b7ae524f86094c4eb8cfb95f32589d85" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Raphael</first-name>
+        <last-name>Gagnon</last-name>
+        <role />
+        <e-mail>raphaelgagnon@cegep-chicoutimi.qc.ca</e-mail>
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-a0efb531875a4fd3956fbe536ee2f553" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
       </person>
       <person id="">
         <first-name>Raphael</first-name>
@@ -508,7 +518,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       <property />
     </item>
     <item id="32494d2444ae46de83623f592cae74c1" cid="PROP010" type="property" name="daterappel" style-class="" owner="6d94d56ddfab4895adc134d1b85505d1" creator="" creation-date="04/29/2022 09:48:52" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -535,7 +545,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       <property />
     </item>
     <item id="b9fbd50e1eab437cb94b66e15e1414bb" cid="PROP011" type="property" name="message" style-class="" owner="6d94d56ddfab4895adc134d1b85505d1" creator="" creation-date="04/29/2022 09:49:00" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -562,7 +572,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       <property />
     </item>
     <item id="831f48134f6e492aac99736639eab27c" cid="PROP012" type="property" name="datedebut" style-class="" owner="83e0dbd80dd14392bf739401aa90a922" creator="" creation-date="04/29/2022 09:49:26" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -589,7 +599,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       <property />
     </item>
     <item id="2e7ddc704b864bceb5af1b8ff454244b" cid="PROP013" type="property" name="datefin" style-class="" owner="83e0dbd80dd14392bf739401aa90a922" creator="" creation-date="04/29/2022 09:51:09" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -616,7 +626,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       <property />
     </item>
     <item id="2f1dda9c23994718870ad7679fe21c26" cid="PROP014" type="property" name="description" style-class="" owner="83e0dbd80dd14392bf739401aa90a922" creator="" creation-date="04/29/2022 09:51:12" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
@@ -643,6 +653,168 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
       <property />
     </item>
     <item id="4370d29984c9471b98da421f7ef3a26c" cid="PROP040" type="property" name="idTache (FK)" style-class="" owner="0c5d7a3033b8436aa1687692b427b6d4" creator="" creation-date="04/29/2022 10:44:52" visibility="private">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF555555" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="solid" colors="#FFF2F2F2,#FFF2F2F2" />
+        <border color="#FF555555" width="2" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="solid" colors="#FF203D85,#FF203D85" />
+            <border color="#FF203D85" width="2" dash-style="Solid" />
+            <label-connector color="#80000000" width="1" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <feature />
+      <structural-feature type="" type-id="" />
+      <property />
+    </item>
+    <item id="11cf1d354463448d9ace15270d893d39" cid="PROP007" type="property" name="noCours" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="04/29/2022 09:47:09" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF555555" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="solid" colors="#FFF2F2F2,#FFF2F2F2" />
+        <border color="#FF555555" width="2" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="solid" colors="#FF203D85,#FF203D85" />
+            <border color="#FF203D85" width="2" dash-style="Solid" />
+            <label-connector color="#80000000" width="1" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <feature />
+      <structural-feature type="" type-id="" />
+      <property />
+    </item>
+    <item id="f9f2ce0d8f6d4e1fa78fa4dae863076f" cid="PROP008" type="property" name="nomCours" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="04/29/2022 09:47:13" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF555555" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="solid" colors="#FFF2F2F2,#FFF2F2F2" />
+        <border color="#FF555555" width="2" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="solid" colors="#FF203D85,#FF203D85" />
+            <border color="#FF203D85" width="2" dash-style="Solid" />
+            <label-connector color="#80000000" width="1" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <feature />
+      <structural-feature type="" type-id="" />
+      <property />
+    </item>
+    <item id="2521df1045ca4c6ca7056b062ae94a77" cid="PROP009" type="property" name="description" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="04/29/2022 09:47:53" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF555555" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="solid" colors="#FFF2F2F2,#FFF2F2F2" />
+        <border color="#FF555555" width="2" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="solid" colors="#FF203D85,#FF203D85" />
+            <border color="#FF203D85" width="2" dash-style="Solid" />
+            <label-connector color="#80000000" width="1" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <feature />
+      <structural-feature type="" type-id="" />
+      <property />
+    </item>
+    <item id="9eabbd39d12141fbbc95e93f66df6f4c" cid="PROP022" type="property" name="noCours (PK)" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="04/29/2022 10:29:49" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF555555" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="solid" colors="#FFF2F2F2,#FFF2F2F2" />
+        <border color="#FF555555" width="2" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="solid" colors="#FF203D85,#FF203D85" />
+            <border color="#FF203D85" width="2" dash-style="Solid" />
+            <label-connector color="#80000000" width="1" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <feature />
+      <structural-feature type="" type-id="" />
+      <property />
+    </item>
+    <item id="2ce25cc43d30420f84e90b20ba100928" cid="PROP023" type="property" name="nomCours" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="04/29/2022 10:29:59" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+        <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="text" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+        <text-style type="tagged-value" use-defaults="false" color="#FF555555" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <text-style type="stereotype" use-defaults="false" color="#FF555555" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+        <background type="solid" colors="#FFF2F2F2,#FFF2F2F2" />
+        <border color="#FF555555" width="2" dash-style="Solid" />
+        <label-connector color="#80000000" width="1" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
+            <text-style type="name" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="text" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" vertical-alignment="center" shadow="false" />
+            <text-style type="tagged-value" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9.75;" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <text-style type="stereotype" use-defaults="false" color="#FFE9E9E9" font="Segoe UI;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
+            <background type="solid" colors="#FF203D85,#FF203D85" />
+            <border color="#FF203D85" width="2" dash-style="Solid" />
+            <label-connector color="#80000000" width="1" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <feature />
+      <structural-feature type="" type-id="" />
+      <property />
+    </item>
+    <item id="7b986a857b7641b39a1359ebcb1b216d" cid="PROP024" type="property" name="description" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="04/29/2022 10:30:03" visibility="private">
       <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFFFF" accuracy="0.9">
         <text-style type="name" use-defaults="false" color="#FF555555" font="Segoe UI;11.25;B" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
         <text-style type="part-header" use-defaults="false" color="#FF1E1E1E" font="Verdana;9;I" horizontal-alignment="center" vertical-alignment="center" shadow="false" />
@@ -748,6 +920,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="449fc5b5702344fe959d3b69fb2316bd" />
               <owned-item ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
               <owned-item ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
+              <owned-item ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
             </owned-items>
             <attributes>
               <attribute id="adffa740103c24f888f5409491c682119560" cid="PROP005" name="noprogramme" creation-date="04/29/2022 09:46:28" property-ref="a4c2e70bcd06408a8e1d5ac33a0bebf2" />
@@ -771,40 +944,24 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="11cf1d354463448d9ace15270d893d39" />
               <owned-item ref="f9f2ce0d8f6d4e1fa78fa4dae863076f" />
               <owned-item ref="2521df1045ca4c6ca7056b062ae94a77" />
+              <owned-item ref="58b87b89ef5445a1bdd8d59717731ae5" />
             </owned-items>
             <attributes>
               <attribute id="ab9bb8f1e66314d00a4b53a7cf312f5f9777" cid="PROP007" name="noCours" creation-date="04/29/2022 09:47:09" property-ref="11cf1d354463448d9ace15270d893d39" />
               <attribute id="a22b7dc4223554009bd7395545239e8d8585" cid="PROP008" name="nomCours" creation-date="04/29/2022 09:47:13" property-ref="f9f2ce0d8f6d4e1fa78fa4dae863076f" />
               <attribute id="a76f3d93a323642c7a2dc998b854abdb9921" cid="PROP009" name="description" creation-date="04/29/2022 09:47:53" property-ref="2521df1045ca4c6ca7056b062ae94a77" />
+              <attribute id="aca882b8d3c23449985fe8ad7035805fb59" cid="PROP050" name="couleur" creation-date="05/06/2022 09:33:23" property-ref="58b87b89ef5445a1bdd8d59717731ae5" />
             </attributes>
             <source-codes>
               <source-code language="ActionScript" />
             </source-codes>
           </item>
-          <item id="11cf1d354463448d9ace15270d893d39" cid="PROP007" type="property" name="noCours" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="04/29/2022 09:47:09" visibility="private">
+          <item id="58b87b89ef5445a1bdd8d59717731ae5" cid="PROP050" type="property" name="couleur" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="05/06/2022 09:33:23" visibility="private">
             <feature />
             <structural-feature type="" type-id="" />
             <property>
               <source-codes>
-                <source-code language="ActionScript" uid="scs-9a1c3dc7-4749-47d3-aa84-b26a89f52186" />
-              </source-codes>
-            </property>
-          </item>
-          <item id="f9f2ce0d8f6d4e1fa78fa4dae863076f" cid="PROP008" type="property" name="nomCours" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="04/29/2022 09:47:13" visibility="private">
-            <feature />
-            <structural-feature type="" type-id="" />
-            <property>
-              <source-codes>
-                <source-code language="ActionScript" uid="scs-2157ae37-f7a8-46f5-bc93-b71d36ea06e5" />
-              </source-codes>
-            </property>
-          </item>
-          <item id="2521df1045ca4c6ca7056b062ae94a77" cid="PROP009" type="property" name="description" style-class="" owner="024ce99c18f4460f88391e246620a7a3" creator="" creation-date="04/29/2022 09:47:53" visibility="private">
-            <feature />
-            <structural-feature type="" type-id="" />
-            <property>
-              <source-codes>
-                <source-code language="ActionScript" uid="scs-60d4353b-7b7e-42de-8588-176849875a4e" />
+                <source-code language="ActionScript" uid="scs-9791212f-8936-42aa-878f-3734c8ab2a53" />
               </source-codes>
             </property>
           </item>
@@ -813,6 +970,8 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="32494d2444ae46de83623f592cae74c1" />
               <owned-item ref="b9fbd50e1eab437cb94b66e15e1414bb" />
               <owned-item ref="ccc4e7ec828e4769b2768379d07949a7" />
+              <owned-item ref="32494d2444ae46de83623f592cae74c1" />
+              <owned-item ref="b9fbd50e1eab437cb94b66e15e1414bb" />
             </owned-items>
             <attributes>
               <attribute id="ae8739881fc964914805a706b3dcdce87971" cid="PROP010" name="daterappel" creation-date="04/29/2022 09:48:52" property-ref="32494d2444ae46de83623f592cae74c1" />
@@ -838,6 +997,9 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="2e7ddc704b864bceb5af1b8ff454244b" />
               <owned-item ref="2f1dda9c23994718870ad7679fe21c26" />
               <owned-item ref="a38083bda30f4af6ae08fc808a62bf9d" />
+              <owned-item ref="831f48134f6e492aac99736639eab27c" />
+              <owned-item ref="2e7ddc704b864bceb5af1b8ff454244b" />
+              <owned-item ref="2f1dda9c23994718870ad7679fe21c26" />
             </owned-items>
             <attributes>
               <attribute id="ac13f60d985a344dba0e92e550175ed29866" cid="PROP012" name="datedebut" creation-date="04/29/2022 09:49:26" property-ref="831f48134f6e492aac99736639eab27c" />
@@ -900,44 +1062,44 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           </item>
           <item id="4e626ee371554a3789de91f2560fd22b" cid="REL001" type="relationship" name="contient" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:53:18" from="bb9a0e81f9ee4194be2467e9aa0e4ee9" to="861f25e7dc3848e98bb9117598e232b3" visibility="package">
             <relation from="bb9a0e81f9ee4194be2467e9aa0e4ee9" to="861f25e7dc3848e98bb9117598e232b3" derived="false">
-              <start-role id="umlar-8280988e-912b-484f-ae2d-0081cee612b8" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-e983515c-7715-4c72-97c7-e48bd1ea6a76" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-19941803-1880-4084-9629-73a05154d2bc" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-4cdb9d2b-e943-4b30-b349-c02f04e9e49b" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="99aff8d0c9f9424fa2d26e66b2478706" cid="REL002" type="relationship" name="est composé de" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:54:59" from="861f25e7dc3848e98bb9117598e232b3" to="024ce99c18f4460f88391e246620a7a3" visibility="package">
             <relation from="861f25e7dc3848e98bb9117598e232b3" to="024ce99c18f4460f88391e246620a7a3" derived="false">
-              <start-role id="umlar-d6ee00ea-1e87-4fbb-8c53-8ccb89c43551" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-09b4ed7a-07be-4ceb-a6c0-8b4c95420c9a" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-e125fa72-80ca-435a-9d31-36c6a2c6e71f" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-1cf9e45f-df0b-440f-94e8-f680e8e1a713" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="b9ac1196933f4686a0cff2d397b870e3" cid="REL003" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:56:55" from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" derived="false">
-              <start-role id="umlar-dba25fa6-362a-4b56-9190-f966daacb89e" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-cb359ee8-61b8-48ec-a5c0-dee762ee2b3f" name="" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-7b9fd328-d2aa-4f5c-ae49-440bc38d8710" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-bcd7242d-c887-498d-a8e4-519c302e17aa" name="" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="8bd416d9c0ff4282827321f179a51747" cid="REL004" type="relationship" name="est affecté" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:57:13" from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="024ce99c18f4460f88391e246620a7a3" derived="false">
-              <start-role id="umlar-42ede7a7-50bf-4d48-a144-7b870b0654d4" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-fa741a18-e5cb-4d60-bbd7-1bb30a6bd571" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-41bb2031-7aab-49f1-93e9-b01f4ac43b90" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-a9a1a1da-75fe-4822-aa0c-87c570c5be34" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="1d6417868a9c490182f9fed46c48e156" cid="REL005" type="relationship" name="peut avoir" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 09:58:27" from="83e0dbd80dd14392bf739401aa90a922" to="6d94d56ddfab4895adc134d1b85505d1" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="6d94d56ddfab4895adc134d1b85505d1" derived="false">
-              <start-role id="umlar-93043125-36e2-4e6b-baec-463a66c37b71" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-fe4dc9fb-655f-4568-8a7b-55ce58258993" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-3be28ed7-873b-41be-886d-550c39631d60" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-12f63205-0f7b-49c5-9809-c3352e330775" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="53aede6138b943f7b6845ea8adf293f7" cid="REL006" type="relationship" name="a" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:02:26" from="83e0dbd80dd14392bf739401aa90a922" to="381dac80e1924e13944e928086c105c8" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="381dac80e1924e13944e928086c105c8" derived="false">
-              <start-role id="umlar-5d6ecebc-45d1-4769-bc5a-1a696e17ddff" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-cda853f2-a560-40a0-b72f-f55818a4eb78" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-c8d6d2a8-bc3c-4799-b45d-d47f89995899" name="" multiplicity="1..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-30c2324b-4767-4b02-9244-c96aba24254a" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="241bc5459d3a4a368e5089c228014b2f" cid="REL007" type="relationship" name="est assignée" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:03:39" from="83e0dbd80dd14392bf739401aa90a922" to="c2055fc74b0b46b69731cdab9e0e7c1b" visibility="package">
             <relation from="83e0dbd80dd14392bf739401aa90a922" to="c2055fc74b0b46b69731cdab9e0e7c1b" derived="false">
-              <start-role id="umlar-2d5dfdf2-932d-4db9-82f9-12b631345f9c" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-ff40cfda-6f4c-4e46-b533-4303c66d4a0c" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-0dd16570-e5b4-4539-b168-096731467773" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-f6f5b839-9298-4b5b-a5eb-4ac2f88a3a71" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
         </abstract-items>
@@ -951,7 +1113,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
             <class />
           </item>
           <item id="024ce99c18f4460f88391e246620a7a3" iid="5290974df37145f09246c5e9095caa2c" creation-date="04/29/2022 09:47:00" order-index="2" type="entity">
-            <layout ax="530" ay="500" awidth="140" aheight="101" x="530" y="500" width="140" height="100" rotation-center="0,30" />
+            <layout ax="530" ay="500" awidth="140" aheight="120" x="530" y="500" width="140" height="100" rotation-center="0,30.5" />
             <class />
           </item>
           <item id="6d94d56ddfab4895adc134d1b85505d1" iid="636973f0776a4370aabb1e97881bf472" creation-date="04/29/2022 09:48:28" order-index="3" type="entity">
@@ -989,10 +1151,10 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
             <relation from="861f25e7dc3848e98bb9117598e232b3" from-iid="08a396cc981c4b9a80ac6113ed42cad1" to="024ce99c18f4460f88391e246620a7a3" to-iid="5290974df37145f09246c5e9095caa2c" />
           </item>
           <item id="8bd416d9c0ff4282827321f179a51747" iid="bcfc215426994efa83711ea339b39f89" creation-date="04/29/2022 09:57:13" order-index="9" type="relation">
-            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="330" y1="560" x2="530" y2="550" start-border-pos="0.375" end-border-pos="0.875" start-local-pos="45" end-local-pos="45" name-position="0,20">
+            <layout start-role-position="25,15" end-role-position="25,-15" start-multiplicity-position="25,-15" end-multiplicity-position="25,15" line-style="oblique" lock-start-point="true" lock-end-point="true" lock-to-fields="false" auto-path="" x1="330" y1="560" x2="530" y2="560" start-border-pos="0.375" end-border-pos="0.875" start-local-pos="45" end-local-pos="45" name-position="0,20">
               <points>
                 <point x="330" y="560" />
-                <point x="530" y="550" />
+                <point x="530" y="560" />
               </points>
             </layout>
             <relation from="83e0dbd80dd14392bf739401aa90a922" from-iid="33609f375a674b99874bcac3809edbd9" to="024ce99c18f4460f88391e246620a7a3" to-iid="5290974df37145f09246c5e9095caa2c" />
@@ -1026,7 +1188,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           </item>
         </layer>
       </diagram>
-      <diagram type="uml-class" id="p8179c821222840c49476de015fc9ccbe_716060454" name="Model Logique" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-100,270">
+      <diagram type="uml-class" id="p8179c821222840c49476de015fc9ccbe_716060454" name="Model Logique" order-index="2" overview-order-index="0" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="-100,450">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -1052,6 +1214,9 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="4baeaeec7b6344ddaadceacd73ac9030" />
               <owned-item ref="1f31d0cfc8db4dee8a752c5fdc79fe6a" />
               <owned-item ref="cf031451a5cd401bbb2d2de2bbd6c9a2" />
+              <owned-item ref="4baeaeec7b6344ddaadceacd73ac9030" />
+              <owned-item ref="1f31d0cfc8db4dee8a752c5fdc79fe6a" />
+              <owned-item ref="cf031451a5cd401bbb2d2de2bbd6c9a2" />
             </owned-items>
             <attributes>
               <attribute id="ad0f74930dd0e495792cadd832a05e031957" cid="PROP017" name="idSession (PK)" creation-date="04/29/2022 10:28:03" property-ref="4baeaeec7b6344ddaadceacd73ac9030" />
@@ -1074,14 +1239,14 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           </item>
           <item id="435a7069036148f5af05fa02afe549d4" cid="REL014" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:48:22" from="617460bfe6a54c45ab9ee6ce10789c67" to="02dd2f4cf63949149b1927d9376eaeaa" visibility="package">
             <relation from="617460bfe6a54c45ab9ee6ce10789c67" to="02dd2f4cf63949149b1927d9376eaeaa" derived="false">
-              <start-role id="umlar-69468bb3-3f6a-49c6-9dce-229a8c82bb55" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-da8a8beb-e3a7-47f4-92bc-c8bf247b4823" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-ea4f2546-3338-4960-9420-764cd473efa7" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-2e0e3e37-bf36-4157-ae94-c9e8b14cf8ed" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="d0b2423ca0ee48f8a0e71c878009b8ec" cid="REL010" type="relationship" name="FK_tache_noCours" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:42:15" from="fcc7636d628e4caa98689d7b83b3f58d" to="617460bfe6a54c45ab9ee6ce10789c67" visibility="package">
             <relation from="fcc7636d628e4caa98689d7b83b3f58d" to="617460bfe6a54c45ab9ee6ce10789c67" derived="false">
-              <start-role id="umlar-66e3eca7-df81-4068-b8cd-addaed75bfdc" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-dbffa4fc-0f10-46bd-8754-8537a6f2859f" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-3c6dba96-532a-4048-84ba-73a4292eaa5b" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-9b7d8c0b-fbd3-4b49-a774-b1543d554c58" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="a52bbc6a810e4a0187fa839f8ecd38fc" cid="C009" type="class" name="tblProgrammes" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:28:23" visibility="package">
@@ -1089,6 +1254,8 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="5a3815549f7b47c28a712e8119a8262e" />
               <owned-item ref="6473bd29fefc40449cf44ca91bd8f831" />
               <owned-item ref="e3429731b32b426aa98678d61917d331" />
+              <owned-item ref="5a3815549f7b47c28a712e8119a8262e" />
+              <owned-item ref="6473bd29fefc40449cf44ca91bd8f831" />
               <owned-item ref="5a3815549f7b47c28a712e8119a8262e" />
               <owned-item ref="6473bd29fefc40449cf44ca91bd8f831" />
             </owned-items>
@@ -1115,8 +1282,8 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           </item>
           <item id="e2c78ef899d340379f1b6690045e582a" cid="REL015" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:48:41" from="abbb931eae7a4e9bba7577408cfe67f2" to="15c839c922cc4277a23a1a0097b80d70" visibility="package">
             <relation from="abbb931eae7a4e9bba7577408cfe67f2" to="15c839c922cc4277a23a1a0097b80d70" derived="false">
-              <start-role id="umlar-d57f6a51-d932-4fc6-8f56-735fc17c03ea" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-478fbbd5-d618-4e00-b00f-f7f3f11c3071" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-57ba8fbb-30bd-49a9-bada-fa35ad1e5bb9" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-8305f638-c33e-43c4-b15e-46a09d9fe280" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="e22b13de210942cca179bdec2d062120" cid="C010" type="class" name="Class10" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:28:48" visibility="package" />
@@ -1126,40 +1293,24 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="9eabbd39d12141fbbc95e93f66df6f4c" />
               <owned-item ref="2ce25cc43d30420f84e90b20ba100928" />
               <owned-item ref="7b986a857b7641b39a1359ebcb1b216d" />
+              <owned-item ref="70a812789aa04ff3b0988c32e7e47f8b" />
             </owned-items>
             <attributes>
               <attribute id="a958a70a265ee4b0883c3e3fd703d9cc1625" cid="PROP022" name="noCours (PK)" creation-date="04/29/2022 10:29:49" property-ref="9eabbd39d12141fbbc95e93f66df6f4c" />
               <attribute id="a1ce0ac32c5914d469e14715fe7dd7aea570" cid="PROP023" name="nomCours" creation-date="04/29/2022 10:29:59" property-ref="2ce25cc43d30420f84e90b20ba100928" />
               <attribute id="a84eda6059d4347b4884059ae0d9dfc24138" cid="PROP024" name="description" creation-date="04/29/2022 10:30:03" property-ref="7b986a857b7641b39a1359ebcb1b216d" />
+              <attribute id="a06a6cf14e063425d938de2f05d342f99841" cid="PROP051" name="couleur" creation-date="05/06/2022 09:33:41" property-ref="70a812789aa04ff3b0988c32e7e47f8b" />
             </attributes>
             <source-codes>
               <source-code language="ActionScript" />
             </source-codes>
           </item>
-          <item id="9eabbd39d12141fbbc95e93f66df6f4c" cid="PROP022" type="property" name="noCours (PK)" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="04/29/2022 10:29:49" visibility="private">
+          <item id="70a812789aa04ff3b0988c32e7e47f8b" cid="PROP051" type="property" name="couleur" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="05/06/2022 09:33:41" visibility="private">
             <feature />
             <structural-feature type="" type-id="" />
             <property>
               <source-codes>
-                <source-code language="ActionScript" uid="scs-81b59b42-da38-4928-add1-dfc27499b959" />
-              </source-codes>
-            </property>
-          </item>
-          <item id="2ce25cc43d30420f84e90b20ba100928" cid="PROP023" type="property" name="nomCours" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="04/29/2022 10:29:59" visibility="private">
-            <feature />
-            <structural-feature type="" type-id="" />
-            <property>
-              <source-codes>
-                <source-code language="ActionScript" uid="scs-e0dcd527-6c1b-43d8-8afe-63d6760da06a" />
-              </source-codes>
-            </property>
-          </item>
-          <item id="7b986a857b7641b39a1359ebcb1b216d" cid="PROP024" type="property" name="description" style-class="" owner="617460bfe6a54c45ab9ee6ce10789c67" creator="" creation-date="04/29/2022 10:30:03" visibility="private">
-            <feature />
-            <structural-feature type="" type-id="" />
-            <property>
-              <source-codes>
-                <source-code language="ActionScript" uid="scs-604762b0-d6c1-4a87-872c-e6417d137c4c" />
+                <source-code language="ActionScript" uid="scs-21af84bf-94d7-4acd-9706-003df7b2a5b6" />
               </source-codes>
             </property>
           </item>
@@ -1178,6 +1329,12 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="e81b7b298b2d4da5be056db603718ddd" />
               <owned-item ref="5022c7a189f049e2b81f5de232780070" />
               <owned-item ref="52ac778ae30340a0b1612b9cc21a4d74" />
+              <owned-item ref="dc82548f2aca4bb09158b5b8afaabe4a" />
+              <owned-item ref="bbc6347311c34cee9b1b9de91ab31f64" />
+              <owned-item ref="bce6b8197d804ab0a08cd854d7a78da4" />
+              <owned-item ref="70b769fddc8e4298a28a4505747d450c" />
+              <owned-item ref="e81b7b298b2d4da5be056db603718ddd" />
+              <owned-item ref="5022c7a189f049e2b81f5de232780070" />
             </owned-items>
             <attributes>
               <attribute id="ac960dbaeffdf49fabd357be100b8d9d3225" cid="PROP025" name="idTache (PK)" creation-date="04/29/2022 10:30:18" property-ref="dc82548f2aca4bb09158b5b8afaabe4a" />
@@ -1207,20 +1364,20 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           </item>
           <item id="f90e81d9dda4479388a55fb19ca1cc17" cid="REL013" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:48:13" from="a52bbc6a810e4a0187fa839f8ecd38fc" to="02dd2f4cf63949149b1927d9376eaeaa" visibility="package">
             <relation from="a52bbc6a810e4a0187fa839f8ecd38fc" to="02dd2f4cf63949149b1927d9376eaeaa" derived="false">
-              <start-role id="umlar-263eea22-4cf8-41f6-9681-c9023f197917" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-7e666220-ae52-4fa5-b2f9-ffa6a362ae22" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-a3629978-1678-4b22-80b4-e0ee974e9357" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-eedbbe7c-bc2f-474b-99e6-dcb0ec0797c3" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="502391724aac46ccbb136f8f21f99461" cid="REL012" type="relationship" name="FK_tache_idStatut" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:44:12" from="fcc7636d628e4caa98689d7b83b3f58d" to="2859ca7952c044738cd9562e1873f164" visibility="package">
             <relation from="fcc7636d628e4caa98689d7b83b3f58d" to="2859ca7952c044738cd9562e1873f164" derived="false">
-              <start-role id="umlar-4228e9f9-ebc8-41cf-bd77-c8f6fea01429" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-05e42702-d9d4-4ca7-9ff0-44ea088ecdbb" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-1da8b361-4039-4a6d-acc9-62b85fd9303f" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-e5b253a5-15bd-4448-8c52-e3a9d65e820d" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="c823096a2d3843c9a9dbb2dccbf06aaf" cid="REL011" type="relationship" name="FK_rappel_idTache" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:43:12" from="0c5d7a3033b8436aa1687692b427b6d4" to="fcc7636d628e4caa98689d7b83b3f58d" visibility="package">
             <relation from="0c5d7a3033b8436aa1687692b427b6d4" to="fcc7636d628e4caa98689d7b83b3f58d" derived="false">
-              <start-role id="umlar-1f1bc433-3715-4aed-b86b-3e401ad2e862" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-71edb900-6882-4f93-8e95-6148a863a93e" name="" navigability="yes" association-type="association" visibility="private" attribute-ref="a5ee06e17d7e0410eada51bd48d4ae210305" />
+              <start-role id="umlar-6e724b9e-7ffa-4501-8e20-130518b46d06" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-e70674e0-e308-42ce-88f6-3682630d6ccf" name="" navigability="yes" association-type="association" visibility="private" attribute-ref="a5ee06e17d7e0410eada51bd48d4ae210305" />
             </relation>
           </item>
           <item id="0c5d7a3033b8436aa1687692b427b6d4" cid="C014" type="class" name="tblRappels" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:30:35" visibility="package">
@@ -1233,6 +1390,10 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="c93bc482a0c9440ea3384c00ce303394" />
               <owned-item ref="1b9c29c4130a4fafafd759e140c4527b" />
               <owned-item ref="571dfe8217484381885f183e456c941e" />
+              <owned-item ref="77929706d91e444f9bda2345bebb6cd7" />
+              <owned-item ref="c93bc482a0c9440ea3384c00ce303394" />
+              <owned-item ref="1b9c29c4130a4fafafd759e140c4527b" />
+              <owned-item ref="4370d29984c9471b98da421f7ef3a26c" />
             </owned-items>
             <attributes>
               <attribute id="a7daed292ab594857802e9117a1162393370" cid="PROP029" name="idRappel (PK)" creation-date="04/29/2022 10:30:41" property-ref="77929706d91e444f9bda2345bebb6cd7" />
@@ -1308,6 +1469,7 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
               <owned-item ref="795002ddbbcd47eaad317924c78f6744" />
               <owned-item ref="696ca8e453d3416fb6d55f675fab0e85" />
               <owned-item ref="795002ddbbcd47eaad317924c78f6744" />
+              <owned-item ref="795002ddbbcd47eaad317924c78f6744" />
             </owned-items>
             <attributes>
               <attribute id="a1118d61177574c1395a537767420e3d9330" cid="PROP034" name="idStatut (PK)" creation-date="04/29/2022 10:34:41" property-ref="795002ddbbcd47eaad317924c78f6744" />
@@ -1329,20 +1491,20 @@ Membres: Andrew Deeley, Laurie-Anne Lafrance</description>
           <item id="6644fe94ae2a45e08d09ec5c8ca49fbf" cid="C017" type="class" name="tblRappels" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:35:02" visibility="package" />
           <item id="5e9b0fc3c7744f52933692e68ed57dda" cid="REL008" type="relationship" name="FK_" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:38:07" from="a52bbc6a810e4a0187fa839f8ecd38fc" to="b816ef51c58e4dab9871e574650c8677" visibility="package">
             <relation from="a52bbc6a810e4a0187fa839f8ecd38fc" to="b816ef51c58e4dab9871e574650c8677" derived="false">
-              <start-role id="umlar-09fbbd8e-f6e3-4092-a89c-84b8b47094af" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-b470991e-560d-47fe-b840-5c17bb4739ba" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-8e24122f-b53b-4926-936c-5ce24ce85bd0" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-83c83aff-5244-4122-a65a-822b2198d28a" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="cd8576fcc04e4f95a38140e508c3ef6c" cid="REL009" type="relationship" name="FK_session_noProgramme" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:39:39" from="b816ef51c58e4dab9871e574650c8677" to="a52bbc6a810e4a0187fa839f8ecd38fc" visibility="package">
             <relation from="b816ef51c58e4dab9871e574650c8677" to="a52bbc6a810e4a0187fa839f8ecd38fc" derived="false">
-              <start-role id="umlar-cd86746e-e67a-467d-8a6d-f361435c5721" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-ebdafbf1-f040-43c9-bffe-cde0d61d7737" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-30ee8372-d642-4801-bb1c-2b74c2af26a7" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-efb846f8-c7b5-4d5b-8ce4-17ef3d99e45e" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="9afe7d175808493c82018f32495e46f9" cid="REL016" type="relationship" name="" style-class="" change-tracking-state="added" creator="" creation-date="04/29/2022 10:48:43" from="fcc7636d628e4caa98689d7b83b3f58d" to="15c839c922cc4277a23a1a0097b80d70" visibility="package">
             <relation from="fcc7636d628e4caa98689d7b83b3f58d" to="15c839c922cc4277a23a1a0097b80d70" derived="false">
-              <start-role id="umlar-8c76bd29-de2f-4042-8e7f-daad0337e7d7" name="" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-546e22d9-feb7-4164-93d3-ba5e01ac559d" name="" navigability="yes" association-type="association" visibility="private" />
+              <start-role id="umlar-fb2e7cb6-449b-4fdf-9ae2-055b8e1d641c" name="" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-5df9918a-ebbf-4b6f-9769-756c0cfab174" name="" navigability="yes" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="a7045599412246bd8bcee6a409bb6c65" cid="PROP044" type="property" name="idLabel (PK ; FK)" style-class="" owner="15c839c922cc4277a23a1a0097b80d70" creator="" creation-date="04/29/2022 10:48:48" visibility="private">
