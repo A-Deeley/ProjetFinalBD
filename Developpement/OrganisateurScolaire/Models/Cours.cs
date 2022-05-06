@@ -12,9 +12,16 @@ namespace OrganisateurScolaire.Models
     /// </summary>
     public class Cours
     {
-        public string Numero { get; private set; }
-        public string Nom { get; private set; }
-        public string Description { get; private set; }
-        public Brush Couleur { get; private set; }
+        public string Numero { get; init; }
+        public string Nom { get; init; }
+        public string Description { get; init; }
+        public List<Tache> Taches { get; private set; }
+        public Brush CouleurBrush { get; private set; }
+
+        public void SetCouleur(string hex)
+        {
+            var brushConverter = new BrushConverter();
+            CouleurBrush = (Brush)brushConverter.ConvertFromString(hex);
+        }
     }
 }

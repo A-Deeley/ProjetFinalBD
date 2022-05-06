@@ -24,5 +24,26 @@ namespace OrganisateurScolaire.DAL.Factory
         /// Initialises the base MySqlConnection string from the application settings.
         /// </summary>
         protected FactoryBase() { _connection = new(Properties.Settings.Default.ConnectionString); }
+
+        /// <summary>
+        /// Executes the requested NonQuery and returns if the command was successful.
+        /// </summary>
+        /// <param name="command">The command to execute the NonQuery on.</param>
+        /// <param name="expectedAffectedRows">The number of rows that should be affected. 
+        /// This is the value that is checked to determine if the command was successful or not.</param>
+        /// <returns>True if the update was successful, false otherwise.</returns>
+        protected bool ExecuteNonQuery(MySqlCommand command, int expectedAffectedRows = 1)
+        {
+
+            bool reussi = false;
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                reussi = command.ExecuteNonQuery() == expectedAffectedRows;
+            }
+
+            return reussi;
+        }
     }
 }

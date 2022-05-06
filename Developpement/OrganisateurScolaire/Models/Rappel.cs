@@ -11,9 +11,9 @@ namespace OrganisateurScolaire.Models
     /// </summary>
     public class Rappel
     {
-        public int ID { get; private set; }
-        public Tache Tache { get; private set; }
-        public string Titre { get; private set; }
-        public string Message { get; private set; }
+        public int ID { get; init; }
+        public string Titre { get; init; }
+        public string Message { get; init; }
+
     }
 }
