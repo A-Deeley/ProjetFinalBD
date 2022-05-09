@@ -11,12 +11,12 @@ namespace OrganisateurScolaire.Models
     /// </summary>
     public class Tache
     {
-        public int ID { get; private set; }
-        public List<Rappel> Rappels { get; private set; }
-        public Statut Statut { get; init; }
-        public string Titre { get; private set; }
-        public DateTime DateDebut { get; private set; }
-        public DateTime DateFin { get; private set; }
-        public string Description { get; private set; }
+        public int ID { get; init; }
+        public List<Rappel> Rappels { get; }
+        public string Statut { get; }
+        public string Titre { get; set; }
+        public DateTime? DateDebut { get; set; }
+        public DateTime DateFin { get; set; }
+        public string Description { get; set; }
     }
 }

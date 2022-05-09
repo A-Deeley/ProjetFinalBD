@@ -1,4 +1,5 @@
 USE h22_ebd_projet1;
+SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS tblSessions;
 CREATE TABLE tblSessions(
@@ -39,10 +40,10 @@ dateFin DATETIME NOT NULL,
 description VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS tblStatus;
-CREATE TABLE tblStatus(
+DROP TABLE IF EXISTS tblStatut;
+CREATE TABLE tblStatut(
 idStatut INT PRIMARY KEY AUTO_INCREMENT,
-valeur VARCHAR(16) NOT NULL
+etat VARCHAR(16) NOT NULL
 );
 
 DROP TABLE IF EXISTS tblRappels;
@@ -53,14 +54,15 @@ titre VARCHAR(32) NOT NULL,
 message VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS tblLabelTaches;
-CREATE TABLE tblLabelTaches(
-idLabel INT,
+DROP TABLE IF EXISTS tblCategorieTaches;
+CREATE TABLE tblCategorieTaches(
+idCategorie INT,
 idTache INT
 );
 
-DROP TABLE IF EXISTS tblLabel;
-CREATE TABLE tblLabel(
-idLabel INT PRIMARY KEY AUTO_INCREMENT,
-valeur VARCHAR(16) NOT NULL
+DROP TABLE IF EXISTS tblCategories;
+CREATE TABLE tblCategories(
+idCategorie INT PRIMARY KEY AUTO_INCREMENT,
+nom VARCHAR(16) NOT NULL
 );
+SET FOREIGN_KEY_CHECKS = 1;

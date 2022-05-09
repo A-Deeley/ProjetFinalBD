@@ -13,8 +13,15 @@ VALUES
 ('420-D51-CH', "PROGRAMMATION WEB TRANSACTIONNELLE"),
 ('420-D52-CH', "INTRODUCTION AUX SERVICES DE DONNÉES");
 
-INSERT INTO tblLabels
-(valeur)
-('Examen')
-('Exercise')
-('Devoir')
+INSERT INTO tblCategories
+(nom)
+VALUES
+('Examen'),
+('Exercise'),
+('Devoir');
+
+INSERT INTO tblStatut
+(etat)
+VALUES
+('En Cours'),
+('Terminé');

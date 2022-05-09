@@ -15,8 +15,9 @@ namespace OrganisateurScolaire.DAL.Factory
     {
 
         /// <summary>
-        /// Gets all the Rappels from the database.
+        /// Gets all the Rappels from the database associated with the specified Tache.
         /// </summary>
+        /// <param name="tache">The tache to get the attached Rappels for.</param>
         /// <returns>A list of Rappels.</returns>
         public IList<Rappel> GetRappelByTache(Tache tache)
         {
@@ -24,7 +25,8 @@ namespace OrganisateurScolaire.DAL.Factory
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("SELECT idRappel, titre, message FROM tblRappels")
+                .SetQuery("SELECT idRappel, titre, message FROM tblRappels WHERE idTache=@id")
+                .AddParameter("@id", tache.ID)
                 .Build();
 
             // Fetch the rappels from the database.

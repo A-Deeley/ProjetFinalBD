@@ -7,11 +7,11 @@ ADD FOREIGN KEY (noCours) REFERENCES tblCours(noCours);
 
 ALTER TABLE tblTaches
 ADD FOREIGN KEY (noCours) REFERENCES tblCours(noCours),
-ADD FOREIGN KEY (idStatut) REFERENCES tblStatus(idStatut);
+ADD FOREIGN KEY (idStatut) REFERENCES tblStatuts(idStatut);
 
 ALTER TABLE tblRappels
 ADD FOREIGN KEY (idTache) REFERENCES tblTaches(idTache);
 
-ALTER TABLE tblLabelTaches
-ADD FOREIGN KEY (idLabel) REFERENCES tblLabel(idLabel),
+ALTER TABLE tblCategorieTaches
+ADD FOREIGN KEY (idCategorie) REFERENCES tblCategories(idCategorie),
 ADD FOREIGN KEY (idTache) REFERENCES tblTaches(idTache);
