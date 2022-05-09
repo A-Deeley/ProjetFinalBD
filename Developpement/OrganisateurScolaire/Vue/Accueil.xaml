@@ -9,6 +9,7 @@
         Title="Accueil" Height="500" Width="1000">
     <StackPanel>
         <TabControl>
+            <!--#region Accueil-->
             <TabItem Header="Accueil">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -37,6 +38,7 @@
                         </Grid>
 
                         <GroupBox Header="Rappel" Grid.Row="1">
+                            <!--#region Carte rappel-->
                             <Border Width="150" BorderBrush="Black" Height="200" BorderThickness="1,1,1,1"  >
                                 <StackPanel Width="150">
                                     <!--#region Titre-->
@@ -61,23 +63,87 @@
                                     <!--#endregion-->
                                 </StackPanel>
                             </Border>
+                            <!--#endregion-->
                         </GroupBox>
                     </Grid>
                     <!--#endregion-->
                     <StackPanel Grid.Column="1">
                         <syncfusion:CalendarEdit Name="calendarEdit" Height="300"/>
                         <Label></Label>
-                        <DataGrid>
+                        <DataGrid AutoGenerateColumns="False">
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Cours"  />
+                                <DataGridTextColumn Header="Cours" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
                     </StackPanel>
                 </Grid>
             </TabItem>
+            <!--#endregion-->
+            <!--#region Taches-->
             <TabItem Header="Taches">
-
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!--#region Taches control-->
+                    <StackPanel Grid.Column="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <!--#region Chercher nom-->
+                            <StackPanel>
+                                <Label>Chercher nom</Label>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBox Width="250" Margin="4,4,0,4"></TextBox>
+                                    <Button  Margin="0,4,4,4" Width="65">Chercher</Button>
+                                </StackPanel>
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Par cours-->
+                            <StackPanel Grid.Column="1">
+                                <Label>Par cours</Label>
+                                <ComboBox Margin="4"></ComboBox>
+                            </StackPanel>
+                            <!--#endregion-->
+                            <!--#region Catégorie-->
+                            <StackPanel Grid.Column="2">
+                                <Label>Par Catégorie</Label>
+                                <ComboBox Margin="4"></ComboBox>
+                            </StackPanel>
+                            <!--#endregion-->
+                        </Grid>
+                        <!--#region grille de tache -->
+                        <DataGrid AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Date" Width="*"/>
+                                <DataGridTextColumn Header="Tâches" Width="*"/>
+                                <DataGridTextColumn Header="Statut" Width="*"/>
+                                <DataGridTextColumn Header="Cours" Width="*"/>
+                                <DataGridTextColumn Header="Catégorie" Width="*"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <!--#endregion-->
+                    </StackPanel>
+                    <!--#endregion-->
+                    <!--#region Gerer taches-->
+                    <StackPanel Grid.Column="1" >
+                        <syncfusion:CalendarEdit Name="calendar" Height="300"/>
+                        <GroupBox Header="Gérer les tâches">
+                            <StackPanel>
+                                <Button Content="Ajouter" Margin="10"></Button>
+                                <Button Content="Modifier" Margin="10"></Button>
+                                <Button Content="Supprimer" Margin="10"></Button>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                    <!--#endregion-->
+                </Grid>
             </TabItem>
+            <!--#endregion-->
         </TabControl> 
     </StackPanel>
 </Window>
