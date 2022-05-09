@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Syncfusion.Licensing;
+using Syncfusion.Windows;
 
 namespace OrganisateurScolaire.Vue
 {

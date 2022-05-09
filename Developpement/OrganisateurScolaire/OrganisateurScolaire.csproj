@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.0.29" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="20.1.0.52" />
   </ItemGroup>
 
   <ItemGroup>
