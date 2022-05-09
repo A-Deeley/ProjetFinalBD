@@ -2,6 +2,7 @@
 using OrganisateurScolaire.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace OrganisateurScolaire.DAL.Factory
         /// </summary>
         /// <param name="cours">The cours to get the taches for.</param>
         /// <returns>A list of Taches.</returns>
-        public IList<Tache> GetTacheByCours(Cours cours)
+        public async Task<IList<Tache>> GetTacheByCoursAsync(Cours cours)
         {
             var command =
                 QueryBuilder
@@ -36,7 +37,7 @@ namespace OrganisateurScolaire.DAL.Factory
             {
                 command.Connection.Open();
 
-                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                using (DbDataReader sqlReader = await command.ExecuteReaderAsync())
                 {
                     while (sqlReader.Read())
                     {

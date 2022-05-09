@@ -48,7 +48,8 @@ namespace OrganisateurScolaire.DAL.Factory
 
                     string noProgramme = sqlReader.GetString(1);
 
-
+                    DAL dal = new();
+                    session.Programme = await dal.ProgrammeFactory().GetByIdAsync(noProgramme);
                 }
             }
 

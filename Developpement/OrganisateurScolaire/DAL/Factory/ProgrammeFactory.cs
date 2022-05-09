@@ -15,7 +15,7 @@ namespace OrganisateurScolaire.DAL.Factory
         /// </summary>
         /// <param name="noProgramme">The identifier of the Programme</param>
         /// <returns>The first programme found.</returns>
-        public async Task<Programme> GetById(string noProgramme)
+        public async Task<Programme> GetByIdAsync(string noProgramme)
         {
             var command =
                 QueryBuilder
@@ -42,6 +42,9 @@ namespace OrganisateurScolaire.DAL.Factory
                          Nom = sqlReader.GetString(1)
                     };
                 }
+
+                DAL dal = new();
+                programme.Cours = await dal.CoursFactory().GetByProgrammeAsync(noProgramme);
             }
 
             return programme;
