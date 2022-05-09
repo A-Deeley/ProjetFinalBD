@@ -13,7 +13,7 @@ namespace OrganisateurScolaire.Models
     {
         public int ID { get; init; }
         public List<Rappel> Rappels { get; }
-        public string Statut { get; }
+        public string Statut { get; init; }
         public string Titre { get; set; }
         public DateTime? DateDebut { get; set; }
         public DateTime DateFin { get; set; }
