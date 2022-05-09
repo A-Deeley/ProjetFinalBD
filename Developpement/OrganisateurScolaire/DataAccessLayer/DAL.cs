@@ -1,11 +1,11 @@
-﻿using OrganisateurScolaire.DAL.Factory;
+﻿using OrganisateurScolaire.DataAccessLayer.Factory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganisateurScolaire.DAL
+namespace OrganisateurScolaire.DataAccessLayer
 {
     public class DAL
     {

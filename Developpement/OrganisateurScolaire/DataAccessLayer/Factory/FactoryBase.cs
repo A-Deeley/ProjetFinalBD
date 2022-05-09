@@ -1,6 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 
-namespace OrganisateurScolaire.DAL.Factory
+namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     /// <summary>
     /// Base factory implementation containing the MySqlConnection.

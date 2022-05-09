@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganisateurScolaire.DAL.Factory
+namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     /// <summary>
     /// Factory to handle Rappel object manipulation (tblRappels)

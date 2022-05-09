@@ -15,7 +15,7 @@ namespace OrganisateurScolaire.Models
         public string Numero { get; init; }
         public string Nom { get; init; }
         public string Description { get; init; }
-        public List<Tache> Taches { get; private set; }
+        public List<Tache> Taches { get; set; }
         public Brush CouleurBrush { get; private set; }
 
         public void SetCouleur(string hex)

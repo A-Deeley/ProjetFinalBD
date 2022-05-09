@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganisateurScolaire.DAL.Factory
+namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     /// <summary>
     /// Factory to handle Tache object manipulation (tblCategories)
@@ -19,7 +19,7 @@ namespace OrganisateurScolaire.DAL.Factory
         /// </summary>
         /// <param name="cours">The cours to get the taches for.</param>
         /// <returns>A list of Taches.</returns>
-        public async Task<IList<Tache>> GetTacheByCoursAsync(Cours cours)
+        public async Task<IEnumerable<Tache>> GetTacheByCoursAsync(Cours cours)
         {
             var command =
                 QueryBuilder

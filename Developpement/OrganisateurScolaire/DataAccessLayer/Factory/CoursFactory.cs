@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganisateurScolaire.DAL.Factory
+namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     public class CoursFactory : FactoryBase
     {
@@ -42,7 +42,7 @@ namespace OrganisateurScolaire.DAL.Factory
 
                         DAL dal = new();
 
-                        cour.Taches = await dal.TacheFactory().GetTacheByCoursAsync(cour);
+                        cour.Taches = new(await dal.TacheFactory().GetTacheByCoursAsync(cour));
 
                         cour.SetCouleur(sqlReader.GetString(3));
                         cours.Add(cour);

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OrganisateurScolaire.DAL.Factory
+namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     public class SessionFactory : FactoryBase
     {
@@ -54,6 +54,36 @@ namespace OrganisateurScolaire.DAL.Factory
             }
 
             return session;
+        }
+
+        public async Task<IEnumerable<Session>> GetAllWithoutInfo()
+        {
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                    "SELECT idSession, annee, saison " +
+                    "FROM tblSessions")
+                .Build();
+
+            List<Session> sessions = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (DbDataReader sqlReader = await command.ExecuteReaderAsync())
+                {
+                    while (sqlReader.Read())
+                        sessions.Add(new()
+                        {
+                            ID = (int)sqlReader.GetInt64(0),
+                            Annee = sqlReader.GetInt16(1),
+                            Saison = Enum.Parse<Saisons>(sqlReader.GetString(2))
+                        });
+                }
+            }
+
+            return sessions;
         }
     }
 }
