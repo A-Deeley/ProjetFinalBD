@@ -40,17 +40,17 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="80" />
+                        <RowDefinition Height="60" />
                     </Grid.RowDefinitions>
                     <!--#region Nom label-->
-                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Nom :</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5"></TextBox>
+                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">Nom :</Label>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Height="25"></TextBox>
                     <!--#endregion-->
                     <!--#region Boutons-->
                     <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
-                        <Button Margin="5">Rénitialiser</Button>
-                        <Button Margin="5">Appliquer</Button>
+                        <Button Margin="5" Height="25" Width="75">Rénitialiser</Button>
+                        <Button Margin="5" Height="25" Width="75">Appliquer</Button>
                     </StackPanel>
                     <!--#endregion-->
                 </Grid>
