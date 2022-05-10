@@ -1,4 +1,5 @@
-﻿using OrganisateurScolaire.Models;
+﻿using MySql.Data.MySqlClient;
+using OrganisateurScolaire.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -10,7 +11,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     public class CoursFactory : FactoryBase
     {
-        public async Task<List<Cours>> GetByProgrammeAsync(string noProgramme)
+        public List<Cours> GetByProgramme(string noProgramme)
         {
             var command =
                 QueryBuilder
@@ -19,8 +20,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     "SELECT * " +
                     "FROM tblCours cours " +
                     "JOIN tblProgrammeCours progCours ON progCours.noCours = cours.noCours " +
-                    "JOIN tblProgramme programmes ON programmes.noProgramme = progCours.noProgramme " +
-                    "WHERE programme.noProgramme=@noProgramme")
+                    "JOIN tblProgrammes programmes ON programmes.noProgramme = progCours.noProgramme " +
+                    "WHERE programmes.noProgramme=@noProgramme")
                 .AddParameter("@noProgramme", noProgramme)
                 .Build();
 
@@ -29,7 +30,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             {
                 command.Connection.Open();
 
-                using (DbDataReader sqlReader = await command.ExecuteReaderAsync())
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
                     while (sqlReader.Read())
                     {
@@ -42,7 +43,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
                         DAL dal = new();
 
-                        cour.Taches = new(await dal.TacheFactory().GetTacheByCoursAsync(cour));
+                        cour.Taches = new(dal.TacheFactory().GetTacheByCours(cour));
 
                         cour.SetCouleur(sqlReader.GetString(3));
                         cours.Add(cour);
