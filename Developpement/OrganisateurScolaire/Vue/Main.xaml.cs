@@ -11,19 +11,22 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using OrganisateurScolaire.ViewModels;
 using Syncfusion.Licensing;
 using Syncfusion.Windows;
 
 namespace OrganisateurScolaire.Vue
 {
     /// <summary>
-    /// Logique d'interaction pour Accueil.xaml
+    /// Logique d'interaction pour Main.xaml
     /// </summary>
-    public partial class Accueil : Window
+    public partial class Main : Window
     {
-        public Accueil()
+        public Main()
         {
             InitializeComponent();
+            AccueilViewModel vmDatacontext = new();
+            DataContext = vmDatacontext;
         }
     }
 }

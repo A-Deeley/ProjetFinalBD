@@ -11,9 +11,14 @@ namespace OrganisateurScolaire.ViewModels
 {
     public class AccueilViewModel : ViewModelBase
     {
-
+        private Session _selectedSession;
         private ObservableCollection<Session> _sessions;
 
+        public Session SelectedSession
+        {
+            get => _selectedSession;
+            set { _selectedSession = value; OnPropertyChanged(); }
+        }
         public ObservableCollection<Session> Sessions
         {
             get => _sessions;
