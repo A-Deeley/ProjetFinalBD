@@ -13,6 +13,7 @@ namespace OrganisateurScolaire.DataAccessLayer
 
         private QueryBuilder(MySqlConnection connection)
         {
+            _command = new();
             _command.Connection = connection;
         }
 

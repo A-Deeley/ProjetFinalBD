@@ -25,3 +25,8 @@ INSERT INTO tblStatut
 VALUES
 ('En Cours'),
 ('Terminé');
+
+INSERT into tblSessions
+(noProgramme, annee, saison)
+VALUES
+('420-B0', 2022, 'Hiver');
