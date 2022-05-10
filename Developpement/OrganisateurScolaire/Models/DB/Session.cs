@@ -16,5 +16,10 @@ namespace OrganisateurScolaire.Models
         public Programme Programme { get; set; }
         public int Annee { get; init; }
         public Saisons Saison { get; init; }
+
+        public override string ToString()
+        {
+            return $"{Saison} {Annee}";
+        }
     }
 }

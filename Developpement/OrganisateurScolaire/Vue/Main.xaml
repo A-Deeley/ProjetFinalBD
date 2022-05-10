@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
         xmlns:vm="clr-namespace:OrganisateurScolaire.ViewModels"
-        d:DataContext="{d:DesignInstance vm:AccueilViewModel}"
+        d:DataContext="{d:DesignInstance vm:MainViewModel}"
         xmlns:local="clr-namespace:OrganisateurScolaire.Vue"
         mc:Ignorable="d"
         Title="Accueil" Height="500" Width="1000">
@@ -31,11 +31,11 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
                                 <Label>Session</Label>
-                                <ComboBox Width="200" HorizontalAlignment="Left" Margin="4,0,2,0" ItemsSource="{Binding Sessions}" SelectedItem="{Binding SelectedSession}"></ComboBox>
+                                <ComboBox Width="200" HorizontalAlignment="Left" Margin="4,0,2,0" ItemsSource="{Binding Accueil.Sessions}" SelectedItem="{Binding Accueil.SelectedSession}"></ComboBox>
                             </StackPanel>
                             <StackPanel Grid.Column="1">
                                 <Label>Programme</Label>
-                                <TextBlock Width="250" HorizontalAlignment="Left" Margin="4,0,2,0" Text="Informatique : Développement et conception" VerticalAlignment="Stretch"></TextBlock>
+                                <TextBlock Width="250" HorizontalAlignment="Left" Margin="4,0,2,0" Text="{Binding Accueil.SelectedSession.Programme.Nom}" VerticalAlignment="Stretch"></TextBlock>
                             </StackPanel>
                         </Grid>
 

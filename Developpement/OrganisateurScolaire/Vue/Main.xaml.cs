@@ -25,7 +25,7 @@ namespace OrganisateurScolaire.Vue
         public Main()
         {
             InitializeComponent();
-            AccueilViewModel vmDatacontext = new();
+            MainViewModel vmDatacontext = new();
             DataContext = vmDatacontext;
         }
     }
