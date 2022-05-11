@@ -25,9 +25,9 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECT idTache, titre, dateDebut, dateFin, description, etat " +
+                    "SELECT idTache, titre, dateDebut, dateFin, description, statut.etat " +
                     "FROM tblTaches taches " +
-                    "JOIN tblStatut statut ON taches.idStatut=statut.idStatut" +
+                    "JOIN tblStatuts statut ON taches.idStatut=statut.idStatut " +
                     "WHERE noCours=@noCours")
                 .AddParameter("@noCours", cours.Numero)
                 .Build();
@@ -39,17 +39,22 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
                 using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
+                    DAL dal = new();
                     while (sqlReader.Read())
                     {
-                        taches.Add(new()
-                        {
+                        Tache tache = new() { 
+
                             ID = (int)sqlReader.GetInt64(0),
                             Titre = sqlReader.GetString(1),
-                            DateDebut = sqlReader.GetDateTime(2),
+                            DateDebut = GetDateTimeDBNull(sqlReader, 2),
                             DateFin = sqlReader.GetDateTime(3),
-                            Description = sqlReader.GetString(4),
-                            Statut = sqlReader.GetString(5)
-                        });
+                            Description = GetStringDBNull(sqlReader, 4),
+                            Statut = sqlReader.GetString(5),
+                            Background = cours.CouleurBrush
+                        };
+                        tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
+
+                        taches.Add(tache);
                     }
                 }
             }

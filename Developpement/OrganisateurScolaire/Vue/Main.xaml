@@ -40,31 +40,44 @@
                         </Grid>
 
                         <GroupBox Header="Rappel" Grid.Row="1">
-                            <!--#region Carte rappel-->
-                            <Border Width="150" BorderBrush="Black" Height="200" BorderThickness="1,1,1,1"  >
-                                <StackPanel Width="150">
-                                    <!--#region Titre-->
-                                    <TextBlock Width="150" Text="Faire TP6" Background="#FFFFAC1C" Height="30" TextAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="#FF0E0E0E" ></TextBlock>
-                                    <!--#endregion-->
-                                    <!--#region Cours-->
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label FontWeight="Bold">Cours :</Label>
-                                        <Label Content="Base de données"/>
-                                    </StackPanel>
-                                    <!--#endregion-->
-                                    <!--#region Date-->
-                                    <StackPanel Orientation="Horizontal">
-                                        <Label FontWeight="Bold">Date de fin :</Label>
-                                        <Label Content="02/05/2022"></Label>
-                                    </StackPanel>
-                                    <!--#endregion-->
-                                    <!--#region Message-->
-                                    <Label FontWeight="Bold">Message</Label>
-                                    <TextBlock Text="Message afficher" TextWrapping="Wrap" Height="62" Margin="3" ></TextBlock>
-                                    <Button Width="100">Voir tâche</Button>
-                                    <!--#endregion-->
-                                </StackPanel>
-                            </Border>
+                            <ItemsControl ItemsSource="{Binding Accueil.RappelsOfSelectedCours}" Height="400">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.Template>
+                                    <ControlTemplate>
+                                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                                            <ItemsPresenter/>
+                                        </ScrollViewer>
+                                    </ControlTemplate>
+                                </ItemsControl.Template>
+                                <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Width="150" BorderBrush="Black" Height="200" BorderThickness="1,1,1,1" Margin="5">
+                                                <StackPanel>
+                                                    <!--#region Titre-->
+                                                    <TextBlock Width="150" Text="{Binding Titre}" Background="{Binding Background}" Height="30" TextAlignment="Center" FontWeight="Bold" FontSize="18" Foreground="#FF0E0E0E"/>
+                                                    <!--#endregion-->
+                                                    <!--#region Date-->
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Label FontWeight="Bold" Content="{Binding DateRappelString}" ContentStringFormat="Date de fin: {0}"/>
+                                                    </StackPanel>
+                                                    <!--#endregion-->
+                                                    <!--#region Description-->
+                                                    <GroupBox Header="Description" FontWeight="Bold" Margin="2, 2, 2, 10">
+                                                        <TextBlock FontWeight="Regular" Text="{Binding Message}" TextWrapping="Wrap" Height="62" Margin="3"/>
+                                                    </GroupBox>
+                                                    <Button Width="100">Voir tâche</Button>
+                                                    <!--#endregion-->
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <!--#region Carte rappel-->
+                            
                             <!--#endregion-->
                         </GroupBox>
                     </Grid>
@@ -74,9 +87,14 @@
                         <syncfusion:CalendarEdit Name="calendarEdit" Height="300"/>
                         <Label></Label>
                         <!--#region Cours-->
-                        <DataGrid AutoGenerateColumns="False">
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Accueil.Cours}" SelectedItem="{Binding Accueil.SelectedCours}" IsReadOnly="True">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Background" Value="{Binding CouleurBrush}"/>
+                                </Style>
+                            </DataGrid.RowStyle>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Cours" Width="*"/>
+                                <DataGridTextColumn Header="Cours" Width="*" Binding="{Binding Nom}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <!--#endregion-->

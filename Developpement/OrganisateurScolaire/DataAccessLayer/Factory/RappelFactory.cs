@@ -42,7 +42,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                         {
                             ID = (int)sqlReader.GetInt64(0),
                             Titre = sqlReader.GetString(1),
-                            Message = sqlReader.GetString(2)
+                            Message = sqlReader.GetString(2),
+                            Background = tache.Background
                         });
                 }
             }

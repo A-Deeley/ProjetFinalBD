@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System;
 
 namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
@@ -44,6 +45,32 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             }
 
             return reussi;
+        }
+
+        /// <summary>
+        /// Checks the index for DBNull.
+        /// </summary>
+        /// <param name="reader">The SqlDataReader currently executing a query.</param>
+        /// <param name="index">The column index to return.</param>
+        /// <returns>An empty string if the index is DBNull, otherwise returns the value in that index.</returns>
+        protected string GetStringDBNull(MySqlDataReader reader, int index)
+        {
+            return (!reader.IsDBNull(index))
+                ? reader.GetString(index)
+                : string.Empty;
+        }
+
+        /// <summary>
+        /// Checks the index for DBNull.
+        /// </summary>
+        /// <param name="reader">The SqlDataReader currently executing a query.</param>
+        /// <param name="index">The column index to return.</param>
+        /// <returns>A null date if the index is DBNull, otherwise returns the value in that index.</returns>
+        protected DateTime? GetDateTimeDBNull(MySqlDataReader reader, int index)
+        {
+            return (!reader.IsDBNull(index))
+                ? reader.GetDateTime(index)
+                : null;
         }
     }
 }
