@@ -19,7 +19,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// </summary>
         /// <param name="cours">The cours to get the taches for.</param>
         /// <returns>A list of Taches.</returns>
-        public async Task<IEnumerable<Tache>> GetTacheByCoursAsync(Cours cours)
+        public IEnumerable<Tache> GetTacheByCours(Cours cours)
         {
             var command =
                 QueryBuilder
@@ -37,7 +37,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             {
                 command.Connection.Open();
 
-                using (DbDataReader sqlReader = await command.ExecuteReaderAsync())
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
                     while (sqlReader.Read())
                     {

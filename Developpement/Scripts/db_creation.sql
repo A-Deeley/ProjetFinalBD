@@ -3,10 +3,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS tblSessions;
 CREATE TABLE tblSessions(
-idSession INT PRIMARY KEY AUTO_INCREMENT,
+idSession VARCHAR(12) PRIMARY KEY
+);
+
+DROP TABLE IF EXISTS tblSessionProgrammes;
+CREATE TABLE tblSessionProgrammes(
+idSession VARCHAR(12),
 noProgramme VARCHAR(6),
-annee SMALLINT NOT NULL,
-saison VARCHAR(7) NOT NULL
+PRIMARY KEY(idSession, noProgramme)
 );
 
 DROP TABLE IF EXISTS tblProgrammes;
@@ -40,8 +44,8 @@ dateFin DATETIME NOT NULL,
 description VARCHAR(255)
 );
 
-DROP TABLE IF EXISTS tblStatut;
-CREATE TABLE tblStatut(
+DROP TABLE IF EXISTS tblStatuts;
+CREATE TABLE tblStatuts(
 idStatut INT PRIMARY KEY AUTO_INCREMENT,
 etat VARCHAR(16) NOT NULL
 );

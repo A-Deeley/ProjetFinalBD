@@ -1,5 +1,5 @@
-﻿using OrganisateurScolaire.Models;
-using OrganisateurScolaire.Models.Enums;
+﻿using MySql.Data.MySqlClient;
+using OrganisateurScolaire.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -14,10 +14,9 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// <summary>
         /// Queries the database for a Session and returns the first one found.
         /// </summary>
-        /// <param name="saison">The season to check.</param>
-        /// <param name="annee">The year to check.</param>
+        /// <param name="sessionId">The ID of the session to find</param>
         /// <returns>The first Session found for the given saison and year.</returns>
-        public async Task<Session> GetBySaisonAsync(Saisons saison, int annee)
+        public Session GetBySaison(string sessionId)
         {
             var command =
                 QueryBuilder
@@ -25,9 +24,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .SetQuery(
                     "SELECT * " +
                     "FROM tblSessions " +
-                    "WHERE saison=@saison AND annee=@anne")
-                .AddParameter("@saison", nameof(saison))
-                .AddParameter("@annee", annee)
+                    "WHERE idSession=@id")
+                .AddParameter("@id", sessionId)
                 .Build();
 
             Session? session = null;
@@ -35,34 +33,36 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             {
                 command.Connection.Open();
 
-                using (DbDataReader sqlReader = await command.ExecuteReaderAsync())
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
                     sqlReader.Read();
 
                     session = new()
                     {
-                        ID = (int)sqlReader.GetInt64(0),
-                        Annee = sqlReader.GetInt16(2),
-                        Saison = Enum.Parse<Saisons>(sqlReader.GetString(3))
+                        ID = sqlReader.GetString(0)
                     };
 
                     string noProgramme = sqlReader.GetString(1);
 
                     DAL dal = new();
-                    session.Programme = await dal.ProgrammeFactory().GetByIdAsync(noProgramme);
+                    session.Programme = dal.ProgrammeFactory().GetById(noProgramme);
                 }
             }
 
             return session;
         }
 
-        public async Task<IEnumerable<Session>> GetAllWithoutInfo()
+        /// <summary>
+        /// Queries the database for all the sessions and returns them without the Programme field filled in.
+        /// </summary>
+        /// <returns>The list of sessions.</returns>
+        public IEnumerable<Session> GetAllWithoutInfo()
         {
             var command =
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECT idSession, annee, saison " +
+                    "SELECT * " +
                     "FROM tblSessions")
                 .Build();
 
@@ -71,16 +71,12 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             {
                 command.Connection.Open();
 
-                using (DbDataReader sqlReader = await command.ExecuteReaderAsync())
-                {
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
                     while (sqlReader.Read())
                         sessions.Add(new()
                         {
-                            ID = (int)sqlReader.GetInt64(0),
-                            Annee = sqlReader.GetInt16(1),
-                            Saison = Enum.Parse<Saisons>(sqlReader.GetString(2))
+                            ID = sqlReader.GetString(0)
                         });
-                }
             }
 
             return sessions;

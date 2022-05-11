@@ -1,4 +1,5 @@
-ALTER TABLE tblSessions
+ALTER TABLE tblSessionProgrammes
+ADD FOREIGN KEY (idSession) REFERENCES tblSessions(idSession),
 ADD FOREIGN KEY (noProgramme) REFERENCES tblProgrammes(noProgramme);
 
 ALTER TABLE tblProgrammeCours

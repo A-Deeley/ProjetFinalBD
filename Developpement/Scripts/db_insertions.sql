@@ -1,3 +1,10 @@
+INSERT into tblSessions
+VALUES
+('Automne_2020'),
+('Hiver_2021'),
+('Automne_2021'),
+('Hiver_2022');
+
 INSERT INTO tblProgrammes
 (noProgramme, nomProgramme)
 VALUES
@@ -13,6 +20,14 @@ VALUES
 ('420-D51-CH', "PROGRAMMATION WEB TRANSACTIONNELLE"),
 ('420-D52-CH', "INTRODUCTION AUX SERVICES DE DONNÉES");
 
+INSERT INTO tblProgrammeCours
+(noProgramme, noCours)
+VALUES
+('420-B0', '420-433-CH'),
+('420-B0', '420-D50-CH'),
+('420-B0', '420-D51-CH'),
+('420-B0', '420-D52-CH');
+
 INSERT INTO tblCategories
 (nom)
 VALUES
@@ -20,13 +35,15 @@ VALUES
 ('Exercise'),
 ('Devoir');
 
-INSERT INTO tblStatut
+INSERT INTO tblStatuts
 (etat)
 VALUES
 ('En Cours'),
 ('Terminé');
 
-INSERT into tblSessions
-(noProgramme, annee, saison)
+INSERT INTO tblSessionProgrammes
 VALUES
-('420-B0', 2022, 'Hiver');
+('Automne_2020', '420-B0'),
+('Hiver_2021', '420-B0'),
+('Automne_2021', '420-B0'),
+('Hiver_2022', '420-B0');
