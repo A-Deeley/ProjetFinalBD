@@ -66,7 +66,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .Build();
 
             // Update the table.
-            return ExecuteNonQuery(command, 1);
+            return ExecuteNonQuery(command);
         }
 
         /// <summary>

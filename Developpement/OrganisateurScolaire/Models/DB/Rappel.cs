@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace OrganisateurScolaire.Models
 {
@@ -14,6 +11,9 @@ namespace OrganisateurScolaire.Models
         public int ID { get; init; }
         public string Titre { get; init; }
         public string Message { get; init; }
+        public DateTime DateRappel { get; init; }
+        public Brush Background { get; set; }
 
+        public string DateRappelString { get => $"{DateRappel:dd MMM}"; }
     }
 }

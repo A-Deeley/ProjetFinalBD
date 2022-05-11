@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrganisateurScolaire.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +17,12 @@ namespace OrganisateurScolaire.ViewModels
         protected void OnPropertyChanged([CallerMemberName] string caller = null) => PropertyChanged?.Invoke(this, new(caller));
         #endregion
 
+        private Session _selectedSession;
 
+        public Session SelectedSession
+        {
+            get => _selectedSession;
+            set { _selectedSession = value; OnPropertyChanged(); }
+        }
     }
 }

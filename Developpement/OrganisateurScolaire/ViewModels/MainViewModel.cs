@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OrganisateurScolaire.ViewModels
 {
-    class MainViewModel
+    class MainViewModel : ViewModelBase
     {
         public AccueilViewModel Accueil { get; init; }
         public TachesViewModel Taches { get; init; }

@@ -38,14 +38,14 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                         {
                             Numero = sqlReader.GetString(0),
                             Nom = sqlReader.GetString(1),
-                            Description = sqlReader.GetString(2)
+                            Description = GetStringDBNull(sqlReader, 2)
                         };
 
                         DAL dal = new();
 
+                        cour.SetCouleur($"#{sqlReader.GetString(3)}");
                         cour.Taches = new(dal.TacheFactory().GetTacheByCours(cour));
 
-                        cour.SetCouleur(sqlReader.GetString(3));
                         cours.Add(cour);
                     }
                 }
