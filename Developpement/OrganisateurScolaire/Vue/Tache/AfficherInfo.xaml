@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="OrganisateurScolaire.Vue.Tache.AfficherInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OrganisateurScolaire.Vue.Tache"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <Label Content="TP7"></Label>
+            <!--#region Catégorie-->
+            <StackPanel Orientation="Horizontal" Margin="0,20">
+                <Label>Catégorie :</Label>
+                <Label Content="Devoir"></Label>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region description-->
+            <Label>Description</Label>
+            <Border BorderThickness="1" Margin="5" BorderBrush="Black">
+                <TextBlock Height="60"></TextBlock>
+            </Border>
+            <!--#endregion-->
+            <!--#region Statut-->
+            <StackPanel Orientation="Horizontal" Margin="0,20"> 
+                <Label>Statut :</Label>
+                <Label Content="En cours"></Label>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region Date début-->
+            <StackPanel Orientation="Horizontal" Margin="0,20">
+                <Label>Date de début :</Label>
+                <Label Content="07/07/2002"></Label>
+            </StackPanel>
+            <!--#endregion-->
+            <!--#region Date fin-->
+            <StackPanel Orientation="Horizontal" Margin="0,20">
+                <Label>Date de fin :</Label>
+                <Label Content="07/07/2002"></Label>
+            </StackPanel>
+            <!--#endregion-->
+        </StackPanel>
+    </Grid>
+</UserControl>
