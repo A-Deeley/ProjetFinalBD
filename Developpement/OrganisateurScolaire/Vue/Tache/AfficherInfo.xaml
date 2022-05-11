@@ -12,40 +12,40 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Label Content="TP7" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="22" Background="AliceBlue" Width="300"></Label>
+            <Label Content="{Binding TitreTache}" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="22" Background="AliceBlue" Width="300"></Label>
             <!--#region Catégorie-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Catégorie :</Label>
-                <Label Content="Devoir" FontSize="14"></Label>
+                <Label Content="{Binding CategorieTache}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
             <!--#region description-->
             <Label FontWeight="Bold" FontSize="14">Description</Label>
             <Border BorderThickness="1" Margin="5" BorderBrush="Black">
-                <TextBlock Height="60" FontSize="14"></TextBlock>
+                <TextBlock Height="60" FontSize="14" Text="{Binding DescriptionTache}"></TextBlock>
             </Border>
             <!--#endregion-->
             <!--#region Statut-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Statut :</Label>
-                <Label Content="En cours" FontSize="14"></Label>
+                <Label Content="{Binding StatutTache}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
             <!--#region Date début-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Date de début :</Label>
-                <Label Content="07/07/2002" FontSize="14"></Label>
+                <Label Content="{Binding DateDebutTache}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
             <!--#region Date fin-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Date de fin :</Label>
-                <Label Content="07/07/2002" FontSize="14"></Label>
+                <Label Content="{Binding DateFinTache}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
         </StackPanel>
         <StackPanel Grid.Column="1">
-            
+            <UserControl Content="{Binding RappelOption}"></UserControl>
         </StackPanel>
     </Grid>
 </UserControl>
