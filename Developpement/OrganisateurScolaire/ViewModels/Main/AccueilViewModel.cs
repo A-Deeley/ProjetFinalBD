@@ -72,23 +72,12 @@ namespace OrganisateurScolaire.ViewModels
             RappelsOfSelectedCours = new(SelectedCours.GetAllRappels());
         }
 
-        /// <summary>
-        /// When the selected Session is changed, make sure the data is loaded and reset the UI for the Cours and Rappels.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnSelectedSessionChanged(object sender, PropertyChangedEventArgs e)
+        protected override void OnSelectedSessionChanged(object sender, PropertyChangedEventArgs e)
         {
             // Check if the property that raised the event is the SelectedSession.
             if (e.PropertyName != nameof(SelectedSession)) return;
 
-            // If the programme is null, fill it the first time.
-            if (SelectedSession.Programme is null)
-            {
-                DAL dal = new();
-                SelectedSession.Programme = dal.ProgrammeFactory().GetBySession(SelectedSession);
-            }
-
+            base.OnSelectedSessionChanged(sender, e);
             RappelsOfSelectedCours = null;
             SelectedCours = null;
             Cours = new(SelectedSession.Programme.Cours);
