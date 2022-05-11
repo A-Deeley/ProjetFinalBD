@@ -10,20 +10,22 @@ using System.Windows.Controls;
 using OrganisateurScolaire.Models;
 using OrganisateurScolaire.DataAccessLayer;
 using OrganisateurScolaire.Vue;
+using OrganisateurScolaire.Vue.Tache;
 
 namespace OrganisateurScolaire.ViewModels
 {
     class DetailTacheViewModel : ViewModelBase
     {
-        private UserControl _UserControlAfficher;
+        private UserControl _UserControlAfficher, _RappelOption;
         private DAL dal;
         #region Attribut tache
-        private string _TitreTache, _CategorieTache, _CoursTache, _DescriptionTache;
+        private string _TitreTache, _CategorieTache, _CoursTache, _DescriptionTache, _StatutTache;
         private DateTime _DateFinTache, _DateDebutTache;
         List<Categorie> _Categories;
         List<Cours> _Cours;
         #endregion
 
+        #region userControls
         public UserControl UserControlAfficher
         {
             get { return _UserControlAfficher; }
@@ -33,6 +35,16 @@ namespace OrganisateurScolaire.ViewModels
                 OnPropertyChanged();
             }
         }
+        public UserControl RappelOption
+        {
+            get { return _RappelOption; }
+            set
+            {
+                _RappelOption = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
 
         #region Propriété tache
         public string TitreTache
@@ -85,6 +97,13 @@ namespace OrganisateurScolaire.ViewModels
                 OnPropertyChanged();
             }
         }
+        public string StatutTache
+        {
+            get { return _StatutTache; }
+            set { _StatutTache = value;
+                OnPropertyChanged();
+            }
+        }
 
         public List<Categorie> Categories
         {
@@ -93,7 +112,7 @@ namespace OrganisateurScolaire.ViewModels
                 OnPropertyChanged();
             }
         }
-        public List<Cours> Cours
+        public List<Cours> LesCours
         {
             get { return _Cours; }
             set
@@ -104,13 +123,32 @@ namespace OrganisateurScolaire.ViewModels
         }
         #endregion
 
+        #region Bouton
+        ICommand _AjouterTache;
+        ICommand AjouterTache
+        {
+            get{ return _AjouterTache; }
+            set { _AjouterTache = value; }
+        }
+        private void AjouterTache_Execute(object sender)
+        {
+            //dal.TacheFactory().Save();
+        }
+        private bool AjouterTache_CanExecute(object parameter)
+        {
+            return true;
+        }
+        #endregion
+
         public DetailTacheViewModel()
         {
             dal = new DAL();
             Categories = new (dal.CategorieFactory().GetAll());
-            Cours = new (dal.CoursFactory().GetAll());
-            Ajouter userControl = new Ajouter();
+            //LesCours = new (dal.CoursFactory().GetByProgramme(base.SelectedSession.ID));
+            AfficherInfo userControl = new AfficherInfo();
             UserControlAfficher = userControl;
+            ListeRappel rappelControl = new ListeRappel();
+            RappelOption = rappelControl;
         }
     }
 }

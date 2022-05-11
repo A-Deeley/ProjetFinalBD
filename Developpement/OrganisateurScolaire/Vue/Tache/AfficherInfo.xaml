@@ -28,13 +28,13 @@
             <!--#region Statut-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Statut :</Label>
-                <Label Content="En cours" FontSize="14"></Label>
+                <Label Content="{Binding StatutTache}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
             <!--#region Date début-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Date de début :</Label>
-                <Label Content="07/07/2002" FontSize="14"></Label>
+                <Label Content="{Binding DateDebutTache}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
             <!--#region Date fin-->
@@ -45,7 +45,7 @@
             <!--#endregion-->
         </StackPanel>
         <StackPanel Grid.Column="1">
-            
+            <UserControl Content="{Binding RappelOption}"></UserControl>
         </StackPanel>
     </Grid>
 </UserControl>

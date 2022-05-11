@@ -48,7 +48,13 @@
             <!--#region Cours -->
             <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
                 <Label Margin="50,0">Cours</Label>
-                <ComboBox Margin="50,0" ItemsSource="{Binding Cours}" SelectedItem="{Binding CoursTache}" ></ComboBox>
+                <ComboBox Margin="50,0" ItemsSource="{Binding LesCours}" SelectedItem="{Binding CoursTache}" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Nom}"></Label>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
             <!--#endregion-->
         </Grid>
@@ -57,7 +63,7 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <Label>Description</Label>
             <TextBox Height="100" Width="300" Margin="12" Text="{Binding DescriptionTache}"></TextBox>
-            <Button Margin="20" Command="{Binding AjouterTache}">Créer</Button>
+            <Button Margin="20" Command="{Binding AjouterTache}" Content="{Binding BoutonTitreTache}"></Button>
         </StackPanel>
         <!--#endregion-->
     </Grid>

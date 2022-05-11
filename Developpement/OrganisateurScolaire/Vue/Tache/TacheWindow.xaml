@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:OrganisateurScolaire.Vue.Tache"
         xmlns:uc="clr-namespace:OrganisateurScolaire.Vue.Tache"
         mc:Ignorable="d"
-        Title="TacheWindow" Height="450" Width="600">
+        Title="TacheWindow" Height="460" Width="600">
     <Grid>
         <UserControl Content="{Binding UserControlAfficher}"></UserControl>
     </Grid>
