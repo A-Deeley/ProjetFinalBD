@@ -69,15 +69,19 @@
                         </GroupBox>
                     </Grid>
                     <!--#endregion-->
+                    <!--#region côté gauche-->
                     <StackPanel Grid.Column="1">
                         <syncfusion:CalendarEdit Name="calendarEdit" Height="300"/>
                         <Label></Label>
+                        <!--#region Cours-->
                         <DataGrid AutoGenerateColumns="False">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Cours" Width="*"/>
                             </DataGrid.Columns>
                         </DataGrid>
+                        <!--#endregion-->
                     </StackPanel>
+                    <!--#endregion-->
                 </Grid>
             </TabItem>
             <!--#endregion-->
