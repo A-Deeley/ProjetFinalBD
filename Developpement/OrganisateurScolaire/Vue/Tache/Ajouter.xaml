@@ -23,26 +23,32 @@
             </Grid.ColumnDefinitions>
             <!--#region Nom -->
             <StackPanel VerticalAlignment="Center" Grid.Column="0" Grid.Row="0">
-                <Label Margin="50,0">Nom </Label>
-                <TextBox Margin="50,0"></TextBox>
+                <Label Margin="50,0">Titre </Label>
+                <TextBox Margin="50,0" Text="{Binding TitreTache}"></TextBox>
             </StackPanel>
             <!--#endregion-->
             <!--#region Catégorie -->
             <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="0">
                 <Label Margin="50,0">Catégorie</Label>
-                <ComboBox Margin="50,0"></ComboBox>
+                <ComboBox Margin="50,0" ItemsSource="{Binding Categories}" SelectedItem="{Binding CategorieTache}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding Nom}"></Label>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
             <!--#endregion-->
             <!--#region Date -->
             <StackPanel VerticalAlignment="Center" Grid.Column="0" Grid.Row="1">
                 <Label Margin="50,0">Date de fin</Label>
-                <TextBox Margin="50,0"></TextBox>
+                <TextBox Margin="50,0" Text="{Binding DateFinTache}"></TextBox>
             </StackPanel>
             <!--#endregion-->
             <!--#region Cours -->
             <StackPanel VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">
                 <Label Margin="50,0">Cours</Label>
-                <ComboBox Margin="50,0"></ComboBox>
+                <ComboBox Margin="50,0" ItemsSource="{Binding Cours}" SelectedItem="{Binding CoursTache}" ></ComboBox>
             </StackPanel>
             <!--#endregion-->
         </Grid>
@@ -50,8 +56,8 @@
         <!--#region Bas-->
         <StackPanel Grid.Row="1" HorizontalAlignment="Center">
             <Label>Description</Label>
-            <TextBox Height="50" Width="200" Margin="12"></TextBox>
-            <Button Margin="70">Créer</Button>
+            <TextBox Height="100" Width="300" Margin="12" Text="{Binding DescriptionTache}"></TextBox>
+            <Button Margin="20" Command="{Binding AjouterTache}">Créer</Button>
         </StackPanel>
         <!--#endregion-->
     </Grid>
