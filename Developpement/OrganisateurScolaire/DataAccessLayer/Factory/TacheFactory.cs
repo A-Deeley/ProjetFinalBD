@@ -72,12 +72,12 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECt *" +
-                    "FROM tblTaches taches" +
-                    "JOIN tblCours cours ON cours.noCours = taches.noCours" +
-                    "JOIN tblProgrammeCours progCours ON progCours.noCours = cours.noCours" +
-                    "JOIN tblProgrammes programmes ON programmes.noProgramme = progCours.noProgramme" +
-                    "JOIN tblSessions sessions ON sessions.noProgramme = programmes.noProgramme" +
+                    "SELECT * " +
+                    "FROM tblTaches taches " +
+                    "JOIN tblCours cours ON cours.noCours = taches.noCours " +
+                    "JOIN tblProgrammeCours progCours ON progCours.noCours = cours.noCours " +
+                    "JOIN tblProgrammes programmes ON programmes.noProgramme = progCours.noProgramme " +
+                    "JOIN tblSessions sessions ON sessions.noProgramme = programmes.noProgramme " +
                     "WHERE sessions.idSession=@idSession")
                 .AddParameter("@idSession", session.ID)
                 .Build();
@@ -105,6 +105,47 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             }
 
             return taches;
+        }
+
+        public void Save(Tache tache)
+        {
+            //Ajouter
+            if (tache.ID == 0)
+            {
+                var command =
+                 QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                "Insert into tbltaches (noCours,idStatut,titre, dateDebut, description, noCategorie) value(@noCours,@idStatut,@titre, @dateDebut, @description, @noCategorie)")
+                .AddParameter("@noCours", tache.IdCours)
+                .AddParameter("@idStatut", 0)
+                .AddParameter("@titre", tache.Titre)
+                .AddParameter("@dateDebut", tache.Titre)
+                .AddParameter("@description", tache.Titre)
+                .AddParameter("@noCategorie", tache.IdCategorie)
+                .Build();
+
+
+                ExecuteNonQuery(command, 1);
+            }
+            //Modifier
+            else
+            {
+                var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                "Update tbltaches set noCours = @noCours,idStatut,titre, dateDebut, description, noCategorie) value(@noCours,@titre, @dateDebut, @description, @noCategorie)")
+                .AddParameter("@noCours", tache.IdCours)
+                .AddParameter("@titre", tache.Titre)
+                .AddParameter("@dateDebut", tache.Titre)
+                .AddParameter("@description", tache.Titre)
+                .AddParameter("@noCategorie", tache.IdCategorie)
+                .Build();
+                 
+                ExecuteNonQuery(command, 1);
+            }
+
         }
     }
 }

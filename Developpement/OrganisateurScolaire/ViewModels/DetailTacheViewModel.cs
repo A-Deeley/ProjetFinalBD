@@ -19,7 +19,8 @@ namespace OrganisateurScolaire.ViewModels
         private UserControl _UserControlAfficher, _RappelOption;
         private DAL dal;
         #region Attribut tache
-        private string _TitreTache, _CategorieTache, _CoursTache, _DescriptionTache, _StatutTache;
+        private string _TitreTache, _CategorieTache, _DescriptionTache, _StatutTache;
+        private Cours _CoursTache;
         private DateTime _DateFinTache, _DateDebutTache;
         List<Categorie> _Categories;
         List<Cours> _Cours;
@@ -64,7 +65,7 @@ namespace OrganisateurScolaire.ViewModels
             }
         }
 
-        public string CoursTache
+        public Cours CoursTache
         {
             get { return _CoursTache; }
             set { _CoursTache = value;
@@ -132,7 +133,8 @@ namespace OrganisateurScolaire.ViewModels
         }
         private void AjouterTache_Execute(object sender)
         {
-            //dal.TacheFactory().Save();
+            Tache nouvelleTache = new Tache(0, TitreTache, DateFinTache, DescriptionTache);
+            //dal.TacheFactory().Save(nouvelleTache);
         }
         private bool AjouterTache_CanExecute(object parameter)
         {
