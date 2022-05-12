@@ -250,6 +250,7 @@ namespace OrganisateurScolaire.ViewModels
             {
                 Categories = new(dal.CategorieFactory().GetAll());
                 //LesCours = new (dal.CoursFactory().GetByProgramme(base.SelectedSession.ID));
+                BoutonTitreTache = "Modifier";
                 Ajouter userControl = new Ajouter();
                 UserControlAfficher = userControl;
             }

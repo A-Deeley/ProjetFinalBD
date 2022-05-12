@@ -10,6 +10,9 @@
         mc:Ignorable="d"
         Title="Accueil" Height="500" Width="1000">
     <StackPanel>
+        <Menu HorizontalAlignment="Right">
+            <MenuItem Header="Settings" Command="{Binding SettingsOuvrir}"></MenuItem>
+        </Menu>
         <TabControl>
             <!--#region Accueil-->
             <TabItem Header="Accueil">
