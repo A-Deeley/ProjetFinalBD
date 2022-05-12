@@ -107,6 +107,10 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             return taches;
         }
 
+        /// <summary>
+        /// Insert et update de tache
+        /// </summary>
+        /// <param name="tache">La tache </param>
         public void Save(Tache tache)
         {
             //Ajouter
@@ -117,7 +121,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .Init(Connection)
                 .SetQuery(
                 "Insert into tbltaches (noCours,idStatut,titre, dateDebut, description, noCategorie) value(@noCours,@idStatut,@titre, @dateDebut, @description, @noCategorie)")
-                .AddParameter("@noCours", tache.IdCours)
+                .AddParameter("@noCours", tache.NoCours)
                 .AddParameter("@idStatut", 0)
                 .AddParameter("@titre", tache.Titre)
                 .AddParameter("@dateDebut", tache.Titre)
@@ -135,9 +139,11 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                "Update tbltaches set noCours = @noCours,idStatut,titre, dateDebut, description, noCategorie) value(@noCours,@titre, @dateDebut, @description, @noCategorie)")
-                .AddParameter("@noCours", tache.IdCours)
+                "Update tbltaches set noCours = @noCours,idStatut = @idStatut ,titre = @titre , description = @description , noCategorie = @noCategorie where idTache = @idTache")
+                .AddParameter("@idTache", tache.ID)
+                .AddParameter("@noCours", tache.NoCours)
                 .AddParameter("@titre", tache.Titre)
+                .AddParameter("@idStatut", 0)
                 .AddParameter("@dateDebut", tache.Titre)
                 .AddParameter("@description", tache.Titre)
                 .AddParameter("@noCategorie", tache.IdCategorie)

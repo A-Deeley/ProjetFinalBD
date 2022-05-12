@@ -53,5 +53,44 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
             return cours;
         }
+
+        /// <summary>
+        /// Get par no cours 
+        /// </summary>
+        /// <param name="noCours">le numero du cours chercher</param>
+        /// <returns>le cours trouver</returns>
+        public Cours  Get(string noCours)
+        {
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                    "SELECT * " +
+                    "FROM tblCours where noCours = @noCours")
+                .AddParameter("@noCours", noCours)
+                .Build();
+
+            Cours cour = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    while (sqlReader.Read())
+                    {
+                        cour = new()
+                        {
+                            Numero = sqlReader.GetString(0),
+                            Nom = sqlReader.GetString(1),
+                            Description = GetStringDBNull(sqlReader, 2)
+                        };
+                        cour.SetCouleur($"#{sqlReader.GetString(3)}");
+                    }
+                }
+            }
+
+            return cour;
+        }
     }
 }

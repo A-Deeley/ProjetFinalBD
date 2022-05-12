@@ -50,5 +50,24 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
             return rappels;
         }
+
+        /// <summary>
+        /// Insert de rappel
+        /// </summary>
+        /// <param name="tache"></param>
+        public void Save(Rappel rappel)
+        {
+                var command =
+                 QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                "Insert into tblRappels (idTache ,dateRappel ,titre , message) value(@idTache ,@dateRappel ,@titre , @message)")
+                .AddParameter("@idTache", rappel.IdTache)
+                .AddParameter("@dateRappel", rappel.DateRappel)
+                .AddParameter("@titre", rappel.Titre)
+                .AddParameter("@message", rappel.Message)
+                .Build();
+
+        }
     }
 }

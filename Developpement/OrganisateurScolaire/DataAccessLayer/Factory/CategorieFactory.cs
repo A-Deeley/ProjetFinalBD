@@ -50,6 +50,41 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         }
 
         /// <summary>
+        /// Get by id
+        /// </summary>
+        /// <returns></returns>
+        public Categorie Get(int id)
+        {
+            // Initialize query.
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery("SELECT * FROM tblCategories where idCategorie = @IdCategorie ")
+                .AddParameter("@IdCategorie", id)
+                .Build();
+
+
+            // Fetch the results from the table.
+            Categorie categorie = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    while (sqlReader.Read())
+                        categorie = new()
+                        {
+                            ID = (int)sqlReader.GetInt64(0),
+                            Nom = sqlReader.GetString(1)
+                        };
+                }
+            }
+
+            return categorie;
+        }
+
+        /// <summary>
         /// Updates the categorie in the database.
         /// </summary>
         /// <param name="categorie">The modified category to update.</param>

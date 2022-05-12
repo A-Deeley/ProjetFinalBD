@@ -8,11 +8,11 @@
              d:DesignHeight="450" d:DesignWidth="300">
     <StackPanel>
         <Label FontWeight="Bold" FontSize="14" Margin="20,20,20,0">Titre du rappel</Label>
-        <TextBox Margin="20,0"></TextBox>
+        <TextBox Margin="20,0" Text="{Binding TitreRappel}"></TextBox>
         <Label FontWeight="Bold" FontSize="14" Margin="20,20,20,0">Date du rappel</Label>
-        <TextBox Margin="20,0"></TextBox>
-        <Label FontWeight="Bold" FontSize="14" Margin="20,20,20,0">Description</Label>
-        <TextBox Margin="20,0" Height="100"></TextBox>
+        <TextBox Margin="20,0" Text="{Binding DateRappel}"></TextBox>
+        <Label FontWeight="Bold" FontSize="14" Margin="20,20,20,0">Message</Label>
+        <TextBox Margin="20,0" Height="100" Text="{Binding MessageRappel}"></TextBox>
         <Button Margin="20,20,20,0" Width="100">Ajouter</Button>
 
     </StackPanel>

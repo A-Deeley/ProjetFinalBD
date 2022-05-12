@@ -9,10 +9,10 @@
     <StackPanel>
         <Label FontWeight="Bold" FontSize="16">Liste de rappel</Label>
         <!--#region Liste de rappel-->
-        <DataGrid AutoGenerateColumns="False" Height="350">
+        <DataGrid AutoGenerateColumns="False" Height="350" ItemsSource="{Binding Rappels}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Rappel" Width="2*"/>
-                <DataGridTextColumn Header="Date" Width="*"/>
+                <DataGridTextColumn Header="Rappel" Width="2*" Binding="{Binding Titre}"/>
+                <DataGridTextColumn Header="Date" Width="*" Binding="{Binding DateRappel}" />
             </DataGrid.Columns>
         </DataGrid>
         <!--#endregion-->
