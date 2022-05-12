@@ -24,7 +24,8 @@ namespace OrganisateurScolaire.ViewModels
         private int IdTache;
         private Cours _CoursTache;
         private Categorie _CategorieTache;
-        private DateTime _DateFinTache, _DateDebutTache;
+        private DateTime? _DateDebutTache;
+        private DateTime _DateFinTache;
         List<Categorie> _Categories;
         List<Cours> _Cours;
         Tache tacheLocal;
@@ -105,7 +106,7 @@ namespace OrganisateurScolaire.ViewModels
                 OnPropertyChanged();
             }
         }
-        public DateTime DateDebutTache
+        public DateTime? DateDebutTache
         {
             get { return _DateDebutTache; }
             set
@@ -176,7 +177,7 @@ namespace OrganisateurScolaire.ViewModels
         #region Bouton
         #region Ajouter tache
         ICommand _AjouterTache;
-        ICommand AjouterTache
+        public ICommand AjouterTache
         {
             get{ return _AjouterTache; }
             set { _AjouterTache = value; }
@@ -193,7 +194,7 @@ namespace OrganisateurScolaire.ViewModels
         #endregion
         #region Afficher Ajouter Rappel
         ICommand _AfficherAjouterRappel;
-        ICommand AfficherAjouterRappel
+        public ICommand AfficherAjouterRappel
         {
             get { return _AfficherAjouterRappel; }
             set { _AfficherAjouterRappel = value; }
@@ -210,7 +211,7 @@ namespace OrganisateurScolaire.ViewModels
         #endregion
         #region Ajouter Rappel
         ICommand _AjouterRappel;
-        ICommand AjouterRappel
+        public ICommand AjouterRappel
         {
             get { return _AjouterRappel; }
             set { _AjouterRappel = value; }
@@ -237,15 +238,15 @@ namespace OrganisateurScolaire.ViewModels
         /// <param name="Affichage">Qu'est-ce que tu veux afficher</param>
         public DetailTacheViewModel(Tache tache, string Affichage)
         {
+            dal = new DAL();
             tacheLocal = tache;
             IdTache = tache.ID;
             TitreTache = tache.Titre;
-            //DateDebutTache = tache.DateDebut;
+            DateDebutTache = tache.DateDebut;
             DateFinTache = tache.DateFin;
             DescriptionTache = tache.Description;
             CoursTache = dal.CoursFactory().Get(tache.NoCours);
             CategorieTache = dal.CategorieFactory().Get(tache.IdCategorie);
-            dal = new DAL();
             if(Affichage == "Modifier")
             {
                 Categories = new(dal.CategorieFactory().GetAll());

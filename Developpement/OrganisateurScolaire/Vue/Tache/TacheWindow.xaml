@@ -5,6 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganisateurScolaire.Vue.Tache"
         xmlns:uc="clr-namespace:OrganisateurScolaire.Vue.Tache"
+                     xmlns:vm="clr-namespace:OrganisateurScolaire.ViewModels"
+             d:DataContext="{d:DesignInstance vm:DetailTacheViewModel}"
         mc:Ignorable="d"
         Title="TacheWindow" Height="460" Width="600">
     <Grid>

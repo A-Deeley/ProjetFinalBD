@@ -17,7 +17,7 @@ namespace OrganisateurScolaire.Models
         public List<Rappel> Rappels { get; set; }
         public string Statut { get; init; }
         public string Titre { get; set; }
-        public DateTime? DateDebut { get; set; }
+        public DateTime? DateDebut { get; init; }
         public DateTime DateFin { get; set; }
         public string Description { get; set; }
         public Brush Background { get; set; }

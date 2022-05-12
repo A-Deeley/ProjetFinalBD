@@ -20,7 +20,7 @@ namespace OrganisateurScolaire.ViewModels
         #region Attribut Categorie
         private List<Categorie> _Categories;
         private Categorie _Categorie;
-        private string _NomCategorie
+        private string _NomCategorie;
         #endregion
 
         #region Propriété Session 

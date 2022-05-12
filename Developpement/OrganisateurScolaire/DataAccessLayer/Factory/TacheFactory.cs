@@ -25,9 +25,11 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECT idTache, titre, dateDebut, dateFin, description, statut.etat " +
+                    "SELECT taches.idTache, titre, dateDebut, dateFin, description, statut.etat, categories.idCategorie " +
                     "FROM tblTaches taches " +
                     "JOIN tblStatuts statut ON taches.idStatut=statut.idStatut " +
+                    "JOIN tblCategorieTaches categorieTaches ON taches.idTache=categorieTaches.idTache " +
+                    "JOIN tblCategories categories ON categories.idCategorie=categorieTaches.idCategorie " +
                     "WHERE noCours=@noCours")
                 .AddParameter("@noCours", cours.Numero)
                 .Build();
@@ -50,56 +52,12 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                             DateFin = sqlReader.GetDateTime(3),
                             Description = GetStringDBNull(sqlReader, 4),
                             Statut = sqlReader.GetString(5),
+                            IdCategorie = (int)sqlReader.GetInt64(6),
                             Background = cours.CouleurBrush
                         };
                         tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
 
                         taches.Add(tache);
-                    }
-                }
-            }
-
-            return taches;
-        }
-
-        /// <summary>
-        /// Queries the database and gets all the Taches for the current session.
-        /// </summary>
-        /// <returns>A list of Taches</returns>
-        public IList<Tache> GetTachesBySession(Session session)
-        {
-            var command =
-                QueryBuilder
-                .Init(Connection)
-                .SetQuery(
-                    "SELECT * " +
-                    "FROM tblTaches taches " +
-                    "JOIN tblCours cours ON cours.noCours = taches.noCours " +
-                    "JOIN tblProgrammeCours progCours ON progCours.noCours = cours.noCours " +
-                    "JOIN tblProgrammes programmes ON programmes.noProgramme = progCours.noProgramme " +
-                    "JOIN tblSessions sessions ON sessions.noProgramme = programmes.noProgramme " +
-                    "WHERE sessions.idSession=@idSession")
-                .AddParameter("@idSession", session.ID)
-                .Build();
-
-            List<Tache> taches = new List<Tache>();
-            using (command.Connection)
-            {
-                command.Connection.Open();
-
-                using (MySqlDataReader sqlReader = command.ExecuteReader())
-                {
-                    while (sqlReader.Read())
-                    {
-                        taches.Add(new()
-                        {
-                            ID = (int)sqlReader.GetInt64(0),
-                            Titre = sqlReader.GetString(1),
-                            DateDebut = sqlReader.GetDateTime(2),
-                            DateFin = sqlReader.GetDateTime(3),
-                            Description = sqlReader.GetString(4),
-                            Statut = sqlReader.GetString(5)
-                        });
                     }
                 }
             }

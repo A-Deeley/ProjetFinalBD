@@ -46,7 +46,6 @@ namespace OrganisateurScolaire.ViewModels
 
         public AccueilViewModel()
         {
-            PropertyChanged += OnSelectedSessionChanged;
             PropertyChanged += OnSelectedCoursChanged;
             DAL dal = new();
 
@@ -72,15 +71,13 @@ namespace OrganisateurScolaire.ViewModels
             RappelsOfSelectedCours = new(SelectedCours.GetAllRappels());
         }
 
-        protected override void OnSelectedSessionChanged(object sender, PropertyChangedEventArgs e)
+        public void UpdateSessionDetails(Session selectedSession)
         {
             // Check if the property that raised the event is the SelectedSession.
-            if (e.PropertyName != nameof(SelectedSession)) return;
 
-            base.OnSelectedSessionChanged(sender, e);
             RappelsOfSelectedCours = null;
             SelectedCours = null;
-            Cours = new(SelectedSession.Programme.Cours);
+            Cours = new(selectedSession.Programme.Cours);
         }
     }
 }
