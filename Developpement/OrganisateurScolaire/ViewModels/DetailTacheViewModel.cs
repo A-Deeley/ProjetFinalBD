@@ -184,7 +184,7 @@ namespace OrganisateurScolaire.ViewModels
         }
         private void AjouterTache_Execute(object sender)
         {
-            Tache nouvelleTache = new Tache(IdTache, TitreTache, DateFinTache, DescriptionTache, CoursTache.Numero, CategorieTache.ID);
+            Tache nouvelleTache = new Tache(IdTache, TitreTache, DateFinTache, DescriptionTache, CoursTache.Numero, CategorieTache.Nom);
             dal.TacheFactory().Save(nouvelleTache);
         }
         private bool AjouterTache_CanExecute(object parameter)
@@ -246,7 +246,7 @@ namespace OrganisateurScolaire.ViewModels
             DateFinTache = tache.DateFin;
             DescriptionTache = tache.Description;
             CoursTache = dal.CoursFactory().Get(tache.NoCours);
-            CategorieTache = dal.CategorieFactory().Get(tache.IdCategorie);
+            CategorieTache = dal.CategorieFactory().Get(tache.Categorie);
             if(Affichage == "Modifier")
             {
                 Categories = new(dal.CategorieFactory().GetAll());

@@ -19,12 +19,18 @@ namespace OrganisateurScolaire.Models
         #endregion
 
         private Programme? _programme;
+        private List<Cours> _cours;
 
         public string ID { get; init; }
         public Programme? Programme 
         {
             get => _programme;
             set { _programme = value; OnPropertyChanged(); }
+        }
+        public List<Cours> Cours
+        {
+            get => _cours;
+            set { _cours = value; OnPropertyChanged(); }
         }
 
 

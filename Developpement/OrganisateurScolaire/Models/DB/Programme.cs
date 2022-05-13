@@ -13,6 +13,5 @@ namespace OrganisateurScolaire.Models
     {
         public string Numero { get; init; }
         public string Nom { get; init; }
-        public List<Cours> Cours { get; set; }
     }
 }

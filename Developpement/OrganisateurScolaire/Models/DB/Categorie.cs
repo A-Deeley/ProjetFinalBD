@@ -11,7 +11,6 @@ namespace OrganisateurScolaire.Models
     /// </summary>
     public class Categorie
     {
-        public int ID { get; init; }
         public string Nom { get; set; }
     }
 }

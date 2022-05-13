@@ -22,17 +22,17 @@ namespace OrganisateurScolaire.Models
         public string Description { get; set; }
         public Brush Background { get; set; }
         public string NoCours { get; set; }
-        public int IdCategorie { get; set; }
+        public string Categorie { get; set; }
 
 
-        public Tache(int iD , string titre, DateTime dateFin, string description, string noCours, int idCategorie)
+        public Tache(int iD , string titre, DateTime dateFin, string description, string noCours, string categorie)
         {
             ID = iD;
             Titre = titre;
             DateFin = dateFin;
             Description = description;
             NoCours = noCours;
-            IdCategorie = idCategorie;
+            Categorie = categorie;
         }
         public Tache() { }
     }

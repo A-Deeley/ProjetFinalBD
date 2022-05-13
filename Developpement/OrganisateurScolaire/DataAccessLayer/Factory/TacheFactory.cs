@@ -25,11 +25,11 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECT taches.idTache, titre, dateDebut, dateFin, description, statut.etat, categories.idCategorie " +
+                    "SELECT taches.idTache, titre, dateDebut, dateFin, description, statut.etat, categories.nom " +
                     "FROM tblTaches taches " +
                     "JOIN tblStatuts statut ON taches.idStatut=statut.idStatut " +
                     "JOIN tblCategorieTaches categorieTaches ON taches.idTache=categorieTaches.idTache " +
-                    "JOIN tblCategories categories ON categories.idCategorie=categorieTaches.idCategorie " +
+                    "JOIN tblCategories categories ON categories.nom=categorieTaches.nomCategorie " +
                     "WHERE noCours=@noCours")
                 .AddParameter("@noCours", cours.Numero)
                 .Build();
@@ -38,27 +38,32 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             using (command.Connection)
             {
                 command.Connection.Open();
-
-                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                try
                 {
-                    DAL dal = new();
-                    while (sqlReader.Read())
+                    using (MySqlDataReader sqlReader = command.ExecuteReader())
                     {
-                        Tache tache = new() { 
+                        DAL dal = new();
+                        while (sqlReader.Read())
+                        {
+                            Tache tache = new() { 
 
-                            ID = (int)sqlReader.GetInt64(0),
-                            Titre = sqlReader.GetString(1),
-                            DateDebut = GetDateTimeDBNull(sqlReader, 2),
-                            DateFin = sqlReader.GetDateTime(3),
-                            Description = GetStringDBNull(sqlReader, 4),
-                            Statut = sqlReader.GetString(5),
-                            IdCategorie = (int)sqlReader.GetInt64(6),
-                            Background = cours.CouleurBrush
-                        };
-                        tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
+                                ID = (int)sqlReader.GetInt64(0),
+                                Titre = sqlReader.GetString(1),
+                                DateDebut = GetDateTimeDBNull(sqlReader, 2),
+                                DateFin = sqlReader.GetDateTime(3),
+                                Description = GetStringDBNull(sqlReader, 4),
+                                Statut = sqlReader.GetString(5),
+                                Categorie = sqlReader.GetString(6),
+                                Background = cours.CouleurBrush
+                            };
+                            tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
 
-                        taches.Add(tache);
+                            taches.Add(tache);
+                        }
                     }
+                }
+                catch(Exception)
+                {
                 }
             }
 
@@ -78,17 +83,18 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                  QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                "Insert into tbltaches (noCours,idStatut,titre, dateDebut, description, noCategorie) value(@noCours,@idStatut,@titre, @dateDebut, @description, @noCategorie)")
+                "Insert into tbltaches (noCours,idStatut,titre, dateFin, description) values (@noCours,@idStatut,@titre, @dateFin, @description)")
                 .AddParameter("@noCours", tache.NoCours)
                 .AddParameter("@idStatut", 0)
                 .AddParameter("@titre", tache.Titre)
-                .AddParameter("@dateDebut", tache.Titre)
-                .AddParameter("@description", tache.Titre)
-                .AddParameter("@noCategorie", tache.IdCategorie)
+                .AddParameter("@dateFin", tache.DateFin)
+                .AddParameter("@description", tache.Description)
                 .Build();
 
 
                 ExecuteNonQuery(command, 1);
+
+                // TODO: Insert entry in tblCategorieTache
             }
             //Modifier
             else
@@ -97,17 +103,18 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                "Update tbltaches set noCours = @noCours,idStatut = @idStatut ,titre = @titre , description = @description , noCategorie = @noCategorie where idTache = @idTache")
+                "Update tbltaches set noCours = @noCours,idStatut = @idStatut ,titre = @titre , description = @description , dateFin = @dateFin, where idTache = @idTache")
                 .AddParameter("@idTache", tache.ID)
                 .AddParameter("@noCours", tache.NoCours)
                 .AddParameter("@titre", tache.Titre)
                 .AddParameter("@idStatut", 0)
-                .AddParameter("@dateDebut", tache.Titre)
-                .AddParameter("@description", tache.Titre)
-                .AddParameter("@noCategorie", tache.IdCategorie)
+                .AddParameter("@dateFin", tache.DateFin)
+                .AddParameter("@description", tache.Description)
                 .Build();
                  
                 ExecuteNonQuery(command, 1);
+
+                // TODO: Update entry in tblCategorieTaches
             }
 
         }

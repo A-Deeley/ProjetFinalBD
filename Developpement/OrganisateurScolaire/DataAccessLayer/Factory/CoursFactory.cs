@@ -11,7 +11,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     public class CoursFactory : FactoryBase
     {
-        public List<Cours> GetByProgramme(string noProgramme)
+        public List<Cours> GetBySession(Session session)
         {
             var command =
                 QueryBuilder
@@ -19,19 +19,21 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .SetQuery(
                     "SELECT * " +
                     "FROM tblCours cours " +
-                    "JOIN tblProgrammeCours progCours ON progCours.noCours = cours.noCours " +
-                    "JOIN tblProgrammes programmes ON programmes.noProgramme = progCours.noProgramme " +
-                    "WHERE programmes.noProgramme=@noProgramme")
-                .AddParameter("@noProgramme", noProgramme)
+                    "JOIN tblProgrammeSessionCours psc ON " +
+                    "(psc.noCours=cours.noCours AND psc.idSession=@idSession AND psc.noProgramme=@noProgramme) " +
+                    "WHERE idSession=@idsession")
+                .AddParameter("@idsession", session.ID)
+                .AddParameter("@noProgramme", session.Programme?.Numero)
                 .Build();
 
             List<Cours> cours = new();
-            using (command.Connection)
+            using (command.Connection)  
             {
                 command.Connection.Open();
 
                 using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
+                    DAL dal = new();
                     while (sqlReader.Read())
                     {
                         Cours cour = new()
@@ -41,7 +43,6 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                             Description = GetStringDBNull(sqlReader, 2)
                         };
 
-                        DAL dal = new();
 
                         cour.SetCouleur($"#{sqlReader.GetString(3)}");
                         cour.Taches = new(dal.TacheFactory().GetTacheByCours(cour));

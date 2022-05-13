@@ -74,10 +74,10 @@ namespace OrganisateurScolaire.ViewModels
         public void UpdateSessionDetails(Session selectedSession)
         {
             // Check if the property that raised the event is the SelectedSession.
-
+            DAL dal = new();
             RappelsOfSelectedCours = null;
             SelectedCours = null;
-            Cours = new(selectedSession.Programme.Cours);
+            Cours = new(dal.CoursFactory().GetBySession(selectedSession));
         }
     }
 }

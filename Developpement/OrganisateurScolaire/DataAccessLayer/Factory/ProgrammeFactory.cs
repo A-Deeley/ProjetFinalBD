@@ -43,12 +43,6 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                          Nom = sqlReader.GetString(1)
                     };
                 }
-
-                if (programme is not null)
-                {
-                    DAL dal = new();
-                    programme.Cours = dal.CoursFactory().GetByProgramme(noProgramme);
-                }
             }
 
             return programme ?? new();
@@ -59,7 +53,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// </summary>
         /// <param name="session">The session to search for.</param>
         /// <returns>The first programme found that matches the session.</returns>
-        public Programme GetBySession(Session session)
+        public Programme? GetBySession(Session session)
         {
             var command =
                 QueryBuilder
@@ -67,10 +61,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .SetQuery(
                     "SELECT programmes.* " +
                     "FROM tblProgrammes programmes " +
-                    "JOIN tblSessionProgrammes sessionProgrammes ON sessionProgrammes.noProgramme = programmes.noProgramme " +
-                    "JOIN tblSessions sessions ON sessions.idSession=sessionProgrammes.idSession " +
-                    "WHERE sessions.idSession=@id")
-                .AddParameter("@id", session.ID)
+                    "JOIN tblprogrammeSessionCours psc ON (psc.noProgramme=programmes.noProgramme AND psc.idSession=@idSession)")
+                .AddParameter("@idSession", session.ID)
                 .Build();
 
             Programme? programme = null;
@@ -87,17 +79,10 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                         Numero = sqlReader.GetString(0),
                         Nom = sqlReader.GetString(1)
                     };
-
-
-                    if (programme is not null)
-                    {
-                        DAL dal = new();
-                        programme.Cours = dal.CoursFactory().GetByProgramme(programme.Numero);
-                    }
                 }
             }
 
-            return programme ?? new();
+            return programme;
         }
     }
 }

@@ -15,34 +15,26 @@ VALUES
 INSERT INTO tblCours
 (noCours, nomCours, couleur)
 VALUES
-('410-433-CH', "CULTURES ORGANISATIONNELLES EN INFORMATIQUE", 'ffffff'),
-('420-D50-CH', "EXPLOITATION DE BASES DE DONNÉES", 'ffffff'),
-('420-D51-CH', "PROGRAMMATION WEB TRANSACTIONNELLE", 'ffffff'),
-('420-D52-CH', "INTRODUCTION AUX SERVICES DE DONNÉES", 'ffffff');
+('410-433-CH', "CULTURES ORGANISATIONNELLES EN INFORMATIQUE", '6887e1'),
+('420-D50-CH', "EXPLOITATION DE BASES DE DONNÉES", '47ad4c'),
+('420-D51-CH', "PROGRAMMATION WEB TRANSACTIONNELLE", '2156ed'),
+('420-D52-CH', "INTRODUCTION AUX SERVICES DE DONNÉES", '75b2b2');
 
-INSERT INTO tblProgrammeCours
+INSERT INTO tblProgrammeSessionCours
+(noProgramme, noCours, idSession)
 VALUES
-('420-B0', '410-433-CH'),
-('420-B0', '420-D50-CH'),
-('420-B0', '420-D51-CH'),
-('420-B0', '420-D52-CH');
+('420-B0', '410-433-CH', 'Hiver_2022'),
+('420-B0', '420-D50-CH', 'Hiver_2022'),
+('420-B0', '420-D51-CH', 'Hiver_2022'),
+('420-B0', '420-D52-CH', 'Hiver_2022');
 
 INSERT INTO tblCategories
-(nom)
 VALUES
 ('Examen'),
 ('Exercise'),
 ('Devoir');
 
 INSERT INTO tblStatuts
-(etat)
 VALUES
-('En Cours'),
-('Terminé');
-
-INSERT INTO tblSessionProgrammes
-VALUES
-('Automne_2020', '420-B0'),
-('Hiver_2021', '420-B0'),
-('Automne_2021', '420-B0'),
-('Hiver_2022', '420-B0');
+(0, 'En Cours'),
+(1, 'Terminé');

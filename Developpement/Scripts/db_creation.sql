@@ -6,24 +6,18 @@ CREATE TABLE tblSessions(
 idSession VARCHAR(12) PRIMARY KEY
 );
 
-DROP TABLE IF EXISTS tblSessionProgrammes;
-CREATE TABLE tblSessionProgrammes(
-idSession VARCHAR(12),
-noProgramme VARCHAR(6),
-PRIMARY KEY (idSession, noProgramme)
+DROP TABLE IF EXISTS tblProgrammeSessionCours;
+CREATE TABLE tblProgrammeSessionCours(
+idSession VARCHAR(12) NOT NULL,
+noProgramme VARCHAR(6) NOT NULL,
+noCours VARCHAR(15) NOT NULL,
+PRIMARY KEY (idSession, noProgramme, noCours)
 );
 
 DROP TABLE IF EXISTS tblProgrammes;
 CREATE TABLE tblProgrammes(
 noProgramme VARCHAR(6) PRIMARY KEY,
 nomProgramme VARCHAR(50) NOT NULL
-);
-
-DROP TABLE IF EXISTS tblProgrammeCours;
-CREATE TABLE tblProgrammeCours(
-noProgramme VARCHAR(6),
-noCours VARCHAR(15),
-PRIMARY KEY (noProgramme, noCours)
 );
 
 DROP TABLE IF EXISTS tblCours;
@@ -47,14 +41,14 @@ description VARCHAR(255)
 
 DROP TABLE IF EXISTS tblStatuts;
 CREATE TABLE tblStatuts(
-idStatut INT PRIMARY KEY AUTO_INCREMENT,
+idStatut INT PRIMARY KEY,
 etat VARCHAR(16) NOT NULL
 );
 
 DROP TABLE IF EXISTS tblRappels;
 CREATE TABLE tblRappels(
 idRappel INT PRIMARY KEY AUTO_INCREMENT,
-idTache INT,
+idTache INT NOT NULL,
 dateRappel DATETIME NOT NULL,
 titre VARCHAR(32) NOT NULL,
 message VARCHAR(255)
@@ -62,13 +56,13 @@ message VARCHAR(255)
 
 DROP TABLE IF EXISTS tblCategorieTaches;
 CREATE TABLE tblCategorieTaches(
-idCategorie INT,
-idTache INT
+nomCategorie VARCHAR(16) NOT NULL,
+idTache INT NOT NULL,
+PRIMARY KEY (nomCategorie, idTache)
 );
 
 DROP TABLE IF EXISTS tblCategories;
 CREATE TABLE tblCategories(
-idCategorie INT PRIMARY KEY AUTO_INCREMENT,
-nom VARCHAR(16) NOT NULL
+nom VARCHAR(16) PRIMARY KEY
 );
 SET FOREIGN_KEY_CHECKS = 1;
