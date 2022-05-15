@@ -6,6 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
@@ -14,24 +15,80 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
     /// </summary>
     public class TacheFactory : FactoryBase
     {
+
         /// <summary>
-        /// Gets all the Taches associated with the specified cours.
+        /// Gets all the <see cref="Tache"/> for the current session.
         /// </summary>
-        /// <param name="cours">The cours to get the taches for.</param>
-        /// <returns>A list of Taches.</returns>
-        public IEnumerable<Tache> GetTacheByCours(Cours cours)
+        /// <param name="session">The <see cref="Session"/> to query the <see cref="Tache"/>s for.</param>
+        /// <returns></returns>
+        public IEnumerable<Tache> GetAllBySession(Session session)
         {
             var command =
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECT taches.idTache, titre, dateDebut, dateFin, description, statut.etat, categories.nom " +
+                    "SELECT taches.idTache, titre, dateDebut, dateFin, taches.description, statuts.etat, categories.nom, cours.couleur, cours.nomCours " +
+                    "FROM tblTaches taches " +
+                    "JOIN tblCours cours ON cours.idCours=taches.idCours " +
+                    "JOIN tblStatuts statuts ON statuts.idStatut=taches.idStatut " +
+                    "JOIN tblProgrammeSessionCours psc ON (psc.noProgramme=@noProgramme AND psc.idSession=@idSession AND psc.idCours=cours.idCours) " +
+                    "JOIN tblCategorieTaches categorieTaches ON categorieTaches.idTache=taches.idTache " +
+                    "JOIN tblCategories categories ON categories.id=categorieTaches.idCategorie")
+                .AddParameter("@noProgramme", session.Programme.Numero)
+                .AddParameter("@idSession", session.ID)
+                .Build();
+
+            List<Tache> taches = new();
+
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                    while (sqlReader.Read())
+                    {
+                        var brushConverter = new BrushConverter();
+                        Brush bgBrush = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(7)}");
+                        bgBrush.Freeze();
+                        taches.Add(new()
+                        {
+                            ID = (int)sqlReader.GetInt64(0),
+                            Titre = sqlReader.GetString(1),
+                            DateDebut = GetDateTimeDBNull(sqlReader, 2),
+                            DateFin = sqlReader.GetDateTime(3),
+                            Description = GetStringDBNull(sqlReader, 4),
+                            Statut = sqlReader.GetString(5),
+                            Categorie = sqlReader.GetString(6),
+                            Background = bgBrush
+                        });
+                    }
+
+            }
+
+            return taches;
+        }
+
+        /// <summary>
+        /// Gets all the Taches associated with the specified cours.
+        /// </summary>
+        /// <param name="cours">The session to get the taches for.</param>
+        /// <returns>A list of Taches.</returns>
+        public IEnumerable<Tache> GetTacheByCours(string sessionId, Cours cour)
+        {
+            // TODO: Fix dis (refaire schéma?) --Andy
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                    "SELECT taches.idTache, titre, dateDebut, dateFin, taches.description, statut.etat, categories.nom " +
                     "FROM tblTaches taches " +
                     "JOIN tblStatuts statut ON taches.idStatut=statut.idStatut " +
                     "JOIN tblCategorieTaches categorieTaches ON taches.idTache=categorieTaches.idTache " +
                     "JOIN tblCategories categories ON categories.nom=categorieTaches.nomCategorie " +
-                    "WHERE noCours=@noCours")
-                .AddParameter("@noCours", cours.Numero)
+                    "JOIN tblCours cours ON taches.noCours=cours.NoCours " +
+                    "JOIN tblProgrammeSessionCours psc ON (idCours=@idCours AND idSession=@idSession")
+                .AddParameter("@idCours", cour.Id)
+                .AddParameter("@idSession", sessionId)
                 .Build();
 
             List<Tache> taches = new List<Tache>();
@@ -54,7 +111,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                                 Description = GetStringDBNull(sqlReader, 4),
                                 Statut = sqlReader.GetString(5),
                                 Categorie = sqlReader.GetString(6),
-                                Background = cours.CouleurBrush
+                                Background = cour.CouleurBrush
                             };
                             tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
 

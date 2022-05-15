@@ -13,7 +13,7 @@ namespace OrganisateurScolaire.ViewModels
     public class AccueilViewModel : ViewModelBase
     {
        
-        private ObservableCollection<Session> _sessions;
+        private List<Session> _sessions;
 
         private Cours _selectedCours;
         private ObservableCollection<Cours> _cours;
@@ -21,7 +21,7 @@ namespace OrganisateurScolaire.ViewModels
         private ObservableCollection<Rappel> _rappelsOfSelectedCours;
 
         
-        public ObservableCollection<Session> Sessions
+        public List<Session> Sessions
         {
             get => _sessions;
             set { _sessions = value; OnPropertyChanged(); }
@@ -37,6 +37,8 @@ namespace OrganisateurScolaire.ViewModels
             get => _cours;
             set { _cours = value; OnPropertyChanged(); }
         }
+
+        public Session CurrentSession { get; private set; }
 
         public ObservableCollection<Rappel> RappelsOfSelectedCours
         {
@@ -65,7 +67,7 @@ namespace OrganisateurScolaire.ViewModels
             if (SelectedCours.Taches is null)
             {
                 DAL dal = new();
-                SelectedCours.Taches = new(dal.TacheFactory().GetTacheByCours(SelectedCours));
+                SelectedCours.Taches = new(dal.TacheFactory().GetTacheByCours(CurrentSession.ID, SelectedCours));
             }
 
             RappelsOfSelectedCours = new(SelectedCours.GetAllRappels());
@@ -73,11 +75,11 @@ namespace OrganisateurScolaire.ViewModels
 
         public void UpdateSessionDetails(Session selectedSession)
         {
-            // Check if the property that raised the event is the SelectedSession.
             DAL dal = new();
             RappelsOfSelectedCours = null;
             SelectedCours = null;
             Cours = new(dal.CoursFactory().GetBySession(selectedSession));
+            CurrentSession = selectedSession;
         }
     }
 }

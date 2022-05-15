@@ -13,5 +13,10 @@ namespace OrganisateurScolaire.Models
     {
         public string Numero { get; init; }
         public string Nom { get; init; }
+
+        public override string ToString()
+        {
+            return $"{Numero} - {Nom}";
+        }
     }
 }

@@ -11,6 +11,33 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     public class CoursFactory : FactoryBase
     {
+        public string GetName(string noCours)
+        {
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                    "SELECT nomCours " +
+                    "FROM tblCours " +
+                    "WHERE noCours=@noCours")
+                .AddParameter("@noCours", noCours)
+                .Build();
+
+            string nomCours = string.Empty;
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    sqlReader.Read();
+                    nomCours = sqlReader.GetString(0);
+                }
+            }
+
+            return nomCours;
+        }
+
         public List<Cours> GetBySession(Session session)
         {
             var command =
@@ -20,7 +47,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     "SELECT * " +
                     "FROM tblCours cours " +
                     "JOIN tblProgrammeSessionCours psc ON " +
-                    "(psc.noCours=cours.noCours AND psc.idSession=@idSession AND psc.noProgramme=@noProgramme) " +
+                    "(psc.idCours=cours.idCours AND psc.idSession=@idSession AND psc.noProgramme=@noProgramme) " +
                     "WHERE idSession=@idsession")
                 .AddParameter("@idsession", session.ID)
                 .AddParameter("@noProgramme", session.Programme?.Numero)
@@ -36,16 +63,18 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     DAL dal = new();
                     while (sqlReader.Read())
                     {
+
                         Cours cour = new()
                         {
-                            Numero = sqlReader.GetString(0),
-                            Nom = sqlReader.GetString(1),
-                            Description = GetStringDBNull(sqlReader, 2)
+                            Id = (int)sqlReader.GetInt64(0),
+                            Numero = sqlReader.GetString(1),
+                            Nom = sqlReader.GetString(2),
+                            Description = GetStringDBNull(sqlReader, 3)
                         };
 
 
-                        cour.SetCouleur($"#{sqlReader.GetString(3)}");
-                        cour.Taches = new(dal.TacheFactory().GetTacheByCours(cour));
+                        cour.SetCouleur($"#{sqlReader.GetString(4)}");
+                        cour.Taches = new(dal.TacheFactory().GetTacheByCours(session.ID, cour));
 
                         cours.Add(cour);
                     }
@@ -82,9 +111,10 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     {
                         cour = new()
                         {
-                            Numero = sqlReader.GetString(0),
-                            Nom = sqlReader.GetString(1),
-                            Description = GetStringDBNull(sqlReader, 2)
+                            Id = (int)sqlReader.GetInt64(0),
+                            Numero = sqlReader.GetString(1),
+                            Nom = sqlReader.GetString(2),
+                            Description = GetStringDBNull(sqlReader, 3)
                         };
                         cour.SetCouleur($"#{sqlReader.GetString(3)}");
                     }

@@ -25,7 +25,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             var command = 
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("SELECT nom FROM tblCategories")
+                .SetQuery("SELECT nom, id FROM tblCategories")
                 .Build();
 
 
@@ -40,7 +40,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     while (sqlReader.Read())
                         categories.Add(new()
                         {
-                            Nom = sqlReader.GetString(0)
+                            Nom = sqlReader.GetString(0),
+                            ID = (int)sqlReader.GetInt64(1)
                         });
                 }
             }
@@ -58,7 +59,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("SELECT nom FROM tblCategories where nom=@value")
+                .SetQuery("SELECT nom, id FROM tblCategories where nom=@value")
                 .AddParameter("@value", value)
                 .Build();
 
@@ -74,7 +75,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     while (sqlReader.Read())
                         categorie = new()
                         {
-                            Nom = sqlReader.GetString(0)
+                            Nom = sqlReader.GetString(0),
+                            ID = (int)sqlReader.GetInt64(1)
                         };
                 }
             }
@@ -93,8 +95,9 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("UPDATE tblCategories SET nom=@nom WHERE nom=@nom")
+                .SetQuery("UPDATE tblCategories SET nom=@nom WHERE id=@id")
                 .AddParameter("@nom", categorie.Nom)
+                .AddParameter("@id", categorie.ID)
                 .Build();
 
             // Update the table.
@@ -111,8 +114,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("DELETE FROM tblCategories WHERE nom=@nom")
-                .AddParameter("@nom", categorie.Nom)
+                .SetQuery("DELETE FROM tblCategories WHERE id=@id")
+                .AddParameter("@id", categorie.ID)
                 .Build();
 
             return ExecuteNonQuery(command, 1);

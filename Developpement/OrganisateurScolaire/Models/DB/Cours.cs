@@ -19,6 +19,7 @@ namespace OrganisateurScolaire.Models
         protected void OnPropertyChanged([CallerMemberName] string caller = null) => PropertyChanged?.Invoke(this, new(caller));
         #endregion
 
+        public int Id { get; init; }
         public string Numero { get; init; }
         public string Nom { get; init; }
         public string Description { get; init; }

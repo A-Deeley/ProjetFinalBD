@@ -84,5 +84,38 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
             return programme;
         }
+
+        /// <summary>
+        /// Queries the database for all programmes and returns a <see cref="List{T}"/> of <see cref="Programme"/>.
+        /// </summary>
+        /// <returns></returns>
+        public List<Programme> GetAll()
+        {
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                    "SELECT * " +
+                    "FROM tblProgrammes")
+                .Build();
+
+            List<Programme> programmes = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    while (sqlReader.Read())
+                        programmes.Add(new()
+                        {
+                            Numero = sqlReader.GetString(0),
+                            Nom = sqlReader.GetString(1)
+                        });
+                }
+            }
+
+            return programmes;
+        }
     }
 }

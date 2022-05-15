@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
     /// <summary>
-    /// Factory to handle Rappel object manipulation (tblRappels)
+    /// Factory to handle <see cref="Rappel"/> object manipulation (tblRappels)
     /// </summary>
     public class RappelFactory : FactoryBase
     {
@@ -18,7 +18,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// Gets all the Rappels from the database associated with the specified Tache.
         /// </summary>
         /// <param name="tache">The tache to get the attached Rappels for.</param>
-        /// <returns>A list of Rappels.</returns>
+        /// <returns>A <see cref="List{T}"/> of <see cref="Rappel"/>.</returns>
         public IList<Rappel> GetRappelByTache(Tache tache)
         {
             // Initialize query.

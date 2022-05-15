@@ -1,9 +1,11 @@
 ﻿using OrganisateurScolaire.DataAccessLayer;
 using OrganisateurScolaire.Models;
+using OrganisateurScolaire.VueModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using OrganisateurScolaire.Vue;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +17,8 @@ namespace OrganisateurScolaire.ViewModels
         public TachesViewModel Taches { get; init; }
 
         private Session _selectedSession;
+        
+        public CommandeRelais SettingsOuvrir { get; init; }
 
         public Session SelectedSession
         {
@@ -27,6 +31,15 @@ namespace OrganisateurScolaire.ViewModels
             Accueil = new();
             PropertyChanged += OnSelectedSessionChanged;
             Taches = new();
+            SettingsOuvrir = new(
+                (execute) =>
+                {
+                    DAL dal = new();
+                    var settingsWindow = new Settings();
+                    settingsWindow.DataContext = new SettingsViewModel(Accueil.Sessions, SelectedSession, dal.ProgrammeFactory().GetAll());
+                    settingsWindow.ShowDialog();
+                },
+                (canExecute) =>true);
         }
 
         
@@ -46,6 +59,7 @@ namespace OrganisateurScolaire.ViewModels
             }
 
             Accueil.UpdateSessionDetails(SelectedSession);
+            Taches.UpdateSessionDetails(SelectedSession);
         }
     }
 }

@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OrganisateurScolaire.Vue"
+        xmlns:vm="clr-namespace:OrganisateurScolaire.ViewModels"
+        d:DataContext="{d:DesignInstance vm:SettingsViewModel}"
         mc:Ignorable="d"
         Title="Settings" Height="350" Width="350" ResizeMode="NoResize">
     <TabControl>
@@ -29,7 +31,7 @@
             <StackPanel>
                 <DataGrid AutoGenerateColumns="False" Margin="5" Height="150" ItemsSource="{Binding Categories}" SelectedItem="{Binding Categorie}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Catégories" Width="*"/>
+                        <DataGridTextColumn Header="Catégories" Width="*" Binding="{Binding Nom}"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <!--#region Modificaton/ajout-->
@@ -45,7 +47,7 @@
                     </Grid.RowDefinitions>
                     <!--#region Nom label-->
                     <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center">Nom :</Label>
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Height="25" Text="{Binding NomCategorie}"></TextBox>
+                    <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Height="25" Text="{Binding NomCategorie, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     <!--#endregion-->
                     <!--#region Boutons-->
                     <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">

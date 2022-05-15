@@ -125,32 +125,37 @@
                             <StackPanel>
                                 <Label>Chercher nom</Label>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox Width="250" Margin="4,4,0,4"></TextBox>
-                                    <Button  Margin="0,4,4,4" Width="65">Chercher</Button>
+                                    <TextBox Width="250" Margin="4,4,0,4" Text="{Binding Taches.TacheSearchBar}"></TextBox>
+                                    <Button  Margin="0,4,4,4" Width="65" Command="{Binding Taches.TacheSearchButton}">Chercher</Button>
                                 </StackPanel>
                             </StackPanel>
                             <!--#endregion-->
                             <!--#region Par cours-->
                             <StackPanel Grid.Column="1">
                                 <Label>Par cours</Label>
-                                <ComboBox Margin="4"></ComboBox>
+                                <ComboBox Margin="4" ItemsSource="{Binding Taches.SearchByCoursOptions}" SelectedItem="{Binding Taches.SearchByCoursSelected}"></ComboBox>
                             </StackPanel>
                             <!--#endregion-->
                             <!--#region Catégorie-->
                             <StackPanel Grid.Column="2">
                                 <Label>Par Catégorie</Label>
-                                <ComboBox Margin="4"></ComboBox>
+                                <ComboBox Margin="4" ItemsSource="{Binding Taches.SearchByCategorieOptions}" SelectedItem="{Binding Taches.SearchByCategorieSelected}"></ComboBox>
                             </StackPanel>
                             <!--#endregion-->
                         </Grid>
                         <!--#region grille de tache -->
-                        <DataGrid AutoGenerateColumns="False">
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Taches.AllTaches}">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="DataGridRow">
+                                    <Setter Property="Background" Value="{Binding Background}"/>
+                                </Style>
+                            </DataGrid.RowStyle>
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="Date" Width="*"/>
-                                <DataGridTextColumn Header="Tâches" Width="*"/>
-                                <DataGridTextColumn Header="Statut" Width="*"/>
-                                <DataGridTextColumn Header="Cours" Width="*"/>
-                                <DataGridTextColumn Header="Catégorie" Width="*"/>
+                                <DataGridTextColumn Header="Date" Width="*" Binding="{Binding DateFin}"/>
+                                <DataGridTextColumn Header="Tâche" Width="*" Binding="{Binding Titre}"/>
+                                <DataGridTextColumn Header="Statut" Width="*" Binding="{Binding Statut}"/>
+                                <DataGridTextColumn Header="Cours" Width="*" Binding="{Binding CoursName}"/>
+                                <DataGridTextColumn Header="Catégorie" Width="*" Binding="{Binding Categorie}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <!--#endregion-->

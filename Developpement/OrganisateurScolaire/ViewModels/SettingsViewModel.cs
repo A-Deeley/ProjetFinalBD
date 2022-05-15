@@ -1,4 +1,5 @@
-﻿using OrganisateurScolaire.Models;
+﻿using OrganisateurScolaire.DataAccessLayer;
+using OrganisateurScolaire.Models;
 using OrganisateurScolaire.VueModel;
 using System;
 using System.Collections.Generic;
@@ -68,6 +69,8 @@ namespace OrganisateurScolaire.ViewModels
             get { return _Categorie; }
             set { _Categorie = value;
                 OnPropertyChanged();
+                if (value is not null)
+                    NomCategorie = Categorie.Nom;
             }
         }
         public string NomCategorie
@@ -82,59 +85,52 @@ namespace OrganisateurScolaire.ViewModels
 
         #region bouton
         #region Appliquer Session
-        ICommand _AppliquerSession;
-        ICommand AppliquerSession
-        {
-            get { return _AppliquerSession; }
-            set { _AppliquerSession = value; }
-        }
+        public ICommand AppliquerSession { get; init; }
         private void AppliquerSession_Execute(object sender)
         {
-            //modifier le programme associer à la session ou l'ajouter
+            Session.Programme = Programme;
         }
         private bool AppliquerSession_CanExecute(object parameter)
         {
-            return true;
+            return Programme is not null && Session.Programme != Programme;
         }
         #endregion
         #region Renitialiser Categorie
-        ICommand _RenitialiserCategorie;
-        ICommand RenitialiserCategorie
+        public ICommand RenitialiserCategorie { get; init; }
+        private void ReinitialiserCategorie_Execute(object sender)
         {
-            get { return _RenitialiserCategorie; }
-            set { _RenitialiserCategorie = value; }
-        }
-        private void RenitialiserCategorie_Execute(object sender)
-        {
-            Categorie = null;
             NomCategorie = "";
+            Categorie = null;
         }
-        private bool RenitialiserCategorie_CanExecute(object parameter)
+        private bool ReinitialiserCategorie_CanExecute(object parameter)
         {
-            return true;
+            return Categorie is not null && NomCategorie != Categorie.Nom;
         }
         #endregion
         #region Appliquer Categorie
-        ICommand _AppliquerCategorie;
-        ICommand AppliquerCategorie
-        {
-            get { return _AppliquerCategorie; }
-            set { _AppliquerCategorie = value; }
-        }
+        public ICommand AppliquerCategorie { get; init; }
         private void AppliquerCategorie_Execute(object sender)
         {
-            //Ajouter ou modifier une categorie
+            Categorie.Nom = NomCategorie;
+            new DAL().CategorieFactory().UpdateCategorie(Categorie);
         }
         private bool AppliquerCategorie_CanExecute(object parameter)
         {
-            return true;
+            return Categorie is not null && NomCategorie != Categorie.Nom;
         }
         #endregion
         #endregion
 
-        public SettingsViewModel()
+        public SettingsViewModel(List<Session> sessions, Session currentSession, List<Programme> programmes)
         {
-            this.AppliquerSession = new CommandeRelais(AppliquerSession_Execute, AppliquerSession_CanExecute);
+            Sessions = sessions;
+            Session = currentSession ?? null;
+            Programmes = programmes;
+            Programme = currentSession?.Programme ?? null;
+            AppliquerSession = new CommandeRelais(AppliquerSession_Execute, AppliquerSession_CanExecute);
+            RenitialiserCategorie = new CommandeRelais(ReinitialiserCategorie_Execute, ReinitialiserCategorie_CanExecute);
+            AppliquerCategorie = new CommandeRelais(AppliquerCategorie_Execute, AppliquerCategorie_CanExecute);
+            Categories = new(new DAL().CategorieFactory().GetAll());
         }
     }
 }

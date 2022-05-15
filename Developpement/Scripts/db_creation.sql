@@ -10,8 +10,8 @@ DROP TABLE IF EXISTS tblProgrammeSessionCours;
 CREATE TABLE tblProgrammeSessionCours(
 idSession VARCHAR(12) NOT NULL,
 noProgramme VARCHAR(6) NOT NULL,
-noCours VARCHAR(15) NOT NULL,
-PRIMARY KEY (idSession, noProgramme, noCours)
+idCours INT NOT NULL,
+PRIMARY KEY (idSession, noProgramme, idCours)
 );
 
 DROP TABLE IF EXISTS tblProgrammes;
@@ -22,7 +22,8 @@ nomProgramme VARCHAR(50) NOT NULL
 
 DROP TABLE IF EXISTS tblCours;
 CREATE TABLE tblCours(
-noCours VARCHAR(15) PRIMARY KEY,
+idCours INT PRIMARY KEY AUTO_INCREMENT,
+noCours VARCHAR(15),
 nomCours VARCHAR(50) NOT NULL,
 description VARCHAR(255),
 couleur CHAR(6)
@@ -31,7 +32,7 @@ couleur CHAR(6)
 DROP TABLE IF EXISTS tblTaches;
 CREATE TABLE tblTaches(
 idTache INT PRIMARY KEY AUTO_INCREMENT,
-noCours VARCHAR(15),
+idCours INT NOT NULL,
 idStatut INT NOT NULL,
 titre VARCHAR(32) NOT NULL,
 dateDebut DATETIME,
@@ -56,13 +57,14 @@ message VARCHAR(255)
 
 DROP TABLE IF EXISTS tblCategorieTaches;
 CREATE TABLE tblCategorieTaches(
-nomCategorie VARCHAR(16) NOT NULL,
+idCategorie INT NOT NULL,
 idTache INT NOT NULL,
-PRIMARY KEY (nomCategorie, idTache)
+PRIMARY KEY (idCategorie, idTache)
 );
 
 DROP TABLE IF EXISTS tblCategories;
 CREATE TABLE tblCategories(
-nom VARCHAR(16) PRIMARY KEY
+id INT AUTO_INCREMENT PRIMARY KEY,
+nom VARCHAR(16)
 );
 SET FOREIGN_KEY_CHECKS = 1;

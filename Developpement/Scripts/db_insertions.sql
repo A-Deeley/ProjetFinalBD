@@ -21,14 +21,15 @@ VALUES
 ('420-D52-CH', "INTRODUCTION AUX SERVICES DE DONNÉES", '75b2b2');
 
 INSERT INTO tblProgrammeSessionCours
-(noProgramme, noCours, idSession)
+(idCours, noProgramme, idSession)
 VALUES
-('420-B0', '410-433-CH', 'Hiver_2022'),
-('420-B0', '420-D50-CH', 'Hiver_2022'),
-('420-B0', '420-D51-CH', 'Hiver_2022'),
-('420-B0', '420-D52-CH', 'Hiver_2022');
+(1, '420-B0', 'Hiver_2022'),
+(2, '420-B0', 'Hiver_2022'),
+(3, '420-B0', 'Hiver_2022'),
+(4, '420-B0', 'Hiver_2022');
 
 INSERT INTO tblCategories
+(nom)
 VALUES
 ('Examen'),
 ('Exercise'),
@@ -38,3 +39,18 @@ INSERT INTO tblStatuts
 VALUES
 (0, 'En Cours'),
 (1, 'Terminé');
+
+INSERT INTO tblTaches (idCours, idStatut, titre, dateFin, description) VALUES
+('1', 0, 'Test Tache0', '2022-05-13', 'Test Description blah!'),
+('1', 0, 'Test Tache1', '2022-05-14', 'Test Description loll!'),
+('1', 0, 'Test Tache2', '2022-05-15', 'Test Description ptdr!');
+
+INSERT INTO tblRappels (idTache, dateRappel, titre, message) VALUES
+(3, '2022-05-12', 'Test Rappel 3', 'Ceci est un rappel pour la tache 3.');
+
+INSERT INTO tblCategorieTaches
+(idTache, idCategorie)
+VALUES
+(1, 2),
+(2, 2),
+(3, 3);
