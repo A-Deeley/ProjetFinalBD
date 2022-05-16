@@ -125,8 +125,8 @@
                             <StackPanel>
                                 <Label>Chercher nom</Label>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBox Width="250" Margin="4,4,0,4" Text="{Binding Taches.TacheSearchBar}"></TextBox>
-                                    <Button  Margin="0,4,4,4" Width="65" Command="{Binding Taches.TacheSearchButton}">Chercher</Button>
+                                    <TextBox Width="250" Margin="4,4,0,4" Text="{Binding Taches.TacheSearchBar, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                                    <Button  Margin="0,4,4,4" Width="65" Command="{Binding Taches.ResetSearchButton}">Reset</Button>
                                 </StackPanel>
                             </StackPanel>
                             <!--#endregion-->

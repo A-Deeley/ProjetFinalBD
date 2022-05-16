@@ -21,9 +21,14 @@ namespace OrganisateurScolaire.ViewModels
         private List<Categorie> _searchByCategorieOptions;
         private Cours _searchByCoursSelected;
         private Categorie _searchByCategorieSelected;
+        private Session _currentSession;
         private ObservableCollection<Tache> _allTaches;
 
-
+        public Session CurrentSession
+        {
+            get => _currentSession;
+            set { _currentSession = value; OnPropertyChanged(); }
+        }
         public List<Cours> SearchByCoursOptions
         {
             get => _searchByCoursOptions;
@@ -59,7 +64,7 @@ namespace OrganisateurScolaire.ViewModels
             get { return _nbTache; }
             set { _nbTache = value; OnPropertyChanged(); }
         }
-        public ICommand TacheSearchButton { get; init; }
+        public ICommand ResetSearchButton { get; init; }
         public string TacheSearchBar
         {
             get => _tacheSearchBar;
@@ -120,29 +125,88 @@ namespace OrganisateurScolaire.ViewModels
             return true;
         }
         #endregion
+        #region TacheSearchButton
+        private void ResetSearchButton_Execute(object sender)
+        {
+            TacheSearchBar = string.Empty;
+            SearchByCategorieSelected = null;
+            SearchByCoursSelected = null;
+        }
+        private bool ResetSearchButton_CanExecute(object sender) => !string.IsNullOrEmpty(TacheSearchBar) || SearchByCategorieSelected is not null || SearchByCoursSelected is not null;
+        #endregion
 
         public TachesViewModel() 
         {
-            this.OuvrirAjouter = new CommandeRelais(OuvrirAjouter_Execute, OuvrirAjouter_CanExecute);
-            this.OuvrirModifier = new CommandeRelais(OuvrirModifier_Execute, OuvrirModifier_CanExecute);
-            this.OuvrirDetail = new CommandeRelais(OuvrirDetail_Execute, OuvrirDetail_CanExecute);
+            OuvrirAjouter = new CommandeRelais(OuvrirAjouter_Execute, OuvrirAjouter_CanExecute);
+            OuvrirModifier = new CommandeRelais(OuvrirModifier_Execute, OuvrirModifier_CanExecute);
+            OuvrirDetail = new CommandeRelais(OuvrirDetail_Execute, OuvrirDetail_CanExecute);
+            ResetSearchButton = new CommandeRelais(ResetSearchButton_Execute, ResetSearchButton_CanExecute);
+            PropertyChanged += OnSearchFiltersChanged;
             AllTaches = new(new DAL().TacheFactory().GetTacheAujourdhui());
             nbTache = new DAL().ProcedureFactory().Get();
         }
 
-        public TachesViewModel(Session currentSession)
-        {
-            AllTaches = new(new DAL().TacheFactory().GetAllBySession(currentSession));
+        
 
-            this.OuvrirAjouter = new CommandeRelais(OuvrirAjouter_Execute, OuvrirAjouter_CanExecute);
-            this.OuvrirModifier = new CommandeRelais(OuvrirModifier_Execute, OuvrirModifier_CanExecute);
-            this.OuvrirDetail = new CommandeRelais(OuvrirDetail_Execute, OuvrirDetail_CanExecute);
-            nbTache = new DAL().ProcedureFactory().Get();
+        public TachesViewModel(Session currentSession)
+            :this()
+        {
+            DAL dal = new();
+            CurrentSession = currentSession;
+            AllTaches = new(dal.TacheFactory().GetAllBySession(CurrentSession));
+            SearchByCategorieOptions = new(dal.CategorieFactory().GetAll());
+            SearchByCoursOptions = new(dal.CoursFactory().GetBySession(CurrentSession));
         }
         public void UpdateSessionDetails(Session selectedSession)
         {
-            DAL dal = new();
-            AllTaches = new(dal.TacheFactory().GetAllBySession(selectedSession));
+            try
+            {
+                DAL dal = new();
+                CurrentSession = selectedSession;
+                AllTaches = new(dal.TacheFactory().GetAllBySession(CurrentSession));
+                SearchByCategorieOptions = new(dal.CategorieFactory().GetAll());
+                SearchByCoursOptions = new(dal.CoursFactory().GetBySession(CurrentSession));
+            }catch(Exception ex) { }
+        }
+        private async void OnSearchFiltersChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            await Task.Run(() =>
+            {
+                string[] properties = new string[]
+                {
+                nameof(TacheSearchBar),
+                nameof(SearchByCategorieSelected),
+                nameof(SearchByCoursSelected)
+                };
+
+                if (!properties.Contains(e.PropertyName)) return;
+                if (CurrentSession is null) return;
+
+                AllTaches =
+                    new(new DAL()
+                    .TacheFactory()
+                    .GetAllBySession(CurrentSession)
+                    .Where(
+                        (tache) => Matches(tache)
+                    ));
+            });
+        }
+
+        private bool Matches(Tache t)
+        {
+            bool returnTache = true;
+
+            if (!string.IsNullOrEmpty(TacheSearchBar))
+                returnTache = t.Contains(TacheSearchBar);
+
+            if (returnTache && SearchByCategorieSelected is not null)
+                returnTache = t.Categorie.ID == SearchByCategorieSelected.ID;
+
+            if (returnTache && SearchByCoursSelected is not null)
+                returnTache = t.NoCours == SearchByCoursSelected.Numero;
+
+            return returnTache;
         }
     }
 }
+ 
