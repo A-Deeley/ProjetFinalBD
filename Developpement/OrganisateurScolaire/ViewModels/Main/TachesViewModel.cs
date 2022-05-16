@@ -134,13 +134,31 @@ namespace OrganisateurScolaire.ViewModels
         }
         private bool ResetSearchButton_CanExecute(object sender) => !string.IsNullOrEmpty(TacheSearchBar) || SearchByCategorieSelected is not null || SearchByCoursSelected is not null;
         #endregion
-
+        #region Supprimer
+        ICommand _Supprimer;
+        public ICommand Supprimer
+        {
+            get { return _Supprimer; }
+            set { _Supprimer = value; }
+        }
+        private void Supprimer_Execute(object sender)
+        {
+            DAL dal = new DAL();
+            dal.TacheFactory().DeleteTache(TacheSelectionner);
+            AllTaches = new (dal.TacheFactory().GetTacheAujourdhui());
+        }
+        private bool Supprimer_CanExecute(object parameter)
+        {
+            return true;
+        }
+        #endregion
         public TachesViewModel() 
         {
             OuvrirAjouter = new CommandeRelais(OuvrirAjouter_Execute, OuvrirAjouter_CanExecute);
             OuvrirModifier = new CommandeRelais(OuvrirModifier_Execute, OuvrirModifier_CanExecute);
             OuvrirDetail = new CommandeRelais(OuvrirDetail_Execute, OuvrirDetail_CanExecute);
             ResetSearchButton = new CommandeRelais(ResetSearchButton_Execute, ResetSearchButton_CanExecute);
+            Supprimer = new CommandeRelais(Supprimer_Execute, Supprimer_CanExecute);
             PropertyChanged += OnSearchFiltersChanged;
             AllTaches = new(new DAL().TacheFactory().GetTacheAujourdhui());
             nbTache = new DAL().ProcedureFactory().Get();

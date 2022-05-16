@@ -50,8 +50,9 @@ namespace OrganisateurScolaire.ViewModels
         {
             PropertyChanged += OnSelectedCoursChanged;
             DAL dal = new();
-
+            RappelsOfSelectedCours = new(dal.RappelFactory().GetRappelAujourdhui());
             Sessions = new(dal.SessionFactory().GetAllWithoutInfo());
+
         }
 
         /// <summary>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace OrganisateurScolaire.DataAccessLayer.Factory
 {
@@ -68,6 +69,79 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .AddParameter("@message", rappel.Message)
                 .Build();
             ExecuteNonQuery(command, 1);
+        }
+
+        /// <summary>
+        /// Gets all the Rappels from the database associated with the specified Tache.
+        /// </summary>
+        /// <returns>A <see cref="List{T}"/> of <see cref="Rappel"/>.</returns>
+        public IList<Rappel> GetRappelAujourdhui()
+        {
+            var brushConverter = new BrushConverter();
+            // Initialize query.
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery("select * from RappelTache;")
+                .Build();
+
+            // Fetch the rappels from the database.
+            List<Rappel> rappels = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    while (sqlReader.Read())
+                    rappels.Add(new()
+                    {
+                        ID = (int)sqlReader.GetInt64(0),
+                        IdTache = (int)sqlReader.GetInt64(1),
+                        DateRappel = sqlReader.GetDateTime(2),
+                        Titre = sqlReader.GetString(3),
+                        Message = sqlReader.GetString(4),
+                        Background = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(5)}")
+                }) ;
+                }
+            }
+
+            return rappels;
+        }
+
+        public IList<Rappel> GetRappelAujourdhuiCours(Cours cours)
+        {
+            var brushConverter = new BrushConverter();
+            // Initialize query.
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery("call RappelCours(@noCours);")
+                .AddParameter("@noCours", cours.Numero)
+                .Build();
+
+            // Fetch the rappels from the database.
+            List<Rappel> rappels = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    while (sqlReader.Read())
+                        rappels.Add(new()
+                        {
+                            ID = (int)sqlReader.GetInt64(0),
+                            IdTache = (int)sqlReader.GetInt64(1),
+                            DateRappel = sqlReader.GetDateTime(2),
+                            Titre = sqlReader.GetString(3),
+                            Message = sqlReader.GetString(4),
+                            Background = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(5)}")
+                        });
+                }
+            }
+
+            return rappels;
         }
     }
 }
