@@ -153,7 +153,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
                 ExecuteNonQuery(command, 1);
 
-                // TODO: Insert entry in tblCategorieTache
+                
             }
             //Modifier
             else
@@ -174,7 +174,6 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                  
                 ExecuteNonQuery(command, 1);
 
-                // TODO: Update entry in tblCategorieTaches
             }
 
         }

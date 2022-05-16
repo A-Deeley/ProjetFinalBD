@@ -67,7 +67,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 .AddParameter("@titre", rappel.Titre)
                 .AddParameter("@message", rappel.Message)
                 .Build();
-
+            ExecuteNonQuery(command, 1);
         }
     }
 }

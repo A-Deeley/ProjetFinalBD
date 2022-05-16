@@ -203,6 +203,7 @@ namespace OrganisateurScolaire.ViewModels
         {
             AjouterRappel rappelControl = new AjouterRappel();
             RappelOption = rappelControl;
+            DateRappel = DateTime.Now;
         }
         private bool AfficherAjouterRappel_CanExecute(object parameter)
         {
@@ -275,6 +276,7 @@ namespace OrganisateurScolaire.ViewModels
         public DetailTacheViewModel()
         {
             dal = new DAL();
+            DateFinTache = DateTime.Now;
             BoutonTitreTache = "Ajouter";
             Categories = new(dal.CategorieFactory().GetAll());
             //LesCours = new (dal.CoursFactory().GetByProgramme(base.SelectedSession.ID));

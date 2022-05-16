@@ -48,12 +48,12 @@ CREATE PROCEDURE  RappelTache
 ()
 BEGIN
 Select rappels.idRappel, rappels.dateRappel, rappels.titre, rappels.message, cours.couleur from tblrappels as rappels
-join TacheAujourdhui  as taches on rappels.idTache =  taches.idTache
-join tblCours as cours on taches.idCours = cours.idCours;
+join TacheAujourdhui as taches on rappels.idTache = taches.idTache
+join tblCours as cours on cours.noCours = taches.noCours;
 END //
 DELIMITER ;
 
-##call RappelTache();
+call RappelTache();
 
 ##-----------------------------------------------
 ## les rappels pour aujourdhui 
@@ -64,7 +64,7 @@ CREATE PROCEDURE  RappelCours
 BEGIN
 Select rappels.idRappel, rappels.dateRappel, rappels.titre, rappels.message, cours.couleur from tblrappels as rappels
 join TacheAujourdhui  as taches on rappels.idTache =  taches.idTache
-join tblCours as cours on taches.idCours = cours.idCours
+join tblCours as cours on taches.noCours = cours.noCours
 where cours.idCours = idCours;
 END //
 DELIMITER ;
