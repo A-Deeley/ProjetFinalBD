@@ -18,6 +18,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <!--#endregion-->
-        <Button Margin="20">Ajouter un rappel</Button>
+        <Button Margin="20" Command="{Binding AfficherAjouterRappel}">Ajouter un rappel</Button>
     </StackPanel>
 </UserControl>
