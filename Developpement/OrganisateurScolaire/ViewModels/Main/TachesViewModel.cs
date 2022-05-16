@@ -93,7 +93,9 @@ namespace OrganisateurScolaire.ViewModels
         public ICommand Supprimer { get; init; }
         private void Supprimer_Execute(object sender)
         {
-            new DAL().TacheFactory().DeleteTache(TacheSelectionner);
+            DAL dal = new DAL();
+            dal.TacheFactory().DeleteTache(TacheSelectionner);
+            AllTaches = new(dal.TacheFactory().GetTacheAujourdhui());
         }
         private bool Supprimer_CanExecute(object Sender)
         {
@@ -144,24 +146,6 @@ namespace OrganisateurScolaire.ViewModels
             SearchByCoursSelected = null;
         }
         private bool ResetSearchButton_CanExecute(object sender) => !string.IsNullOrEmpty(TacheSearchBar) || SearchByCategorieSelected is not null || SearchByCoursSelected is not null;
-        #endregion
-        #region Supprimer
-        ICommand _Supprimer;
-        public ICommand Supprimer
-        {
-            get { return _Supprimer; }
-            set { _Supprimer = value; }
-        }
-        private void Supprimer_Execute(object sender)
-        {
-            DAL dal = new DAL();
-            dal.TacheFactory().DeleteTache(TacheSelectionner);
-            AllTaches = new (dal.TacheFactory().GetTacheAujourdhui());
-        }
-        private bool Supprimer_CanExecute(object parameter)
-        {
-            return true;
-        }
         #endregion
         public TachesViewModel() 
         {
