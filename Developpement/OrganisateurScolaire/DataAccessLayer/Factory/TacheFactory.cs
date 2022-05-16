@@ -185,17 +185,11 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// <returns>A list of Taches.</returns>
         public IEnumerable<Tache> GetTacheAujourdhui()
         {
-            var brushConverter = new BrushConverter();
             // TODO: Fix dis (refaire schéma?) --Andy
             var command =
                 QueryBuilder
                 .Init(Connection)
-                //.SetQuery("Select * from  TacheAujourdhui;")
-                .SetQuery(
-                    "SELECT Tache.idTache ,Tache.Titre, Tache.DateDebut, Tache.DateFin, Tache.description, Statut.etat, Tache.idCategorie ,Cours.couleur, Cours.NoCours  FROM tblTaches as Tache " +
-                    "join tblcours as Cours on Tache.idCours = Cours.idCours " +
-                    "join tblStatuts as Statut on Tache.idStatut = Statut.idStatut " +
-                    "where Date(datefin) = current_date()")
+                .SetQuery("Select * from  TacheAujourdhui;")
                 .Build();
 
             List<Tache> taches = new List<Tache>();
@@ -209,6 +203,9 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                         DAL dal = new();
                          while (sqlReader.Read())
                         {
+                            var brushConverter = new BrushConverter();
+                            Brush bgBrush = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(7)}");
+                            bgBrush.Freeze();
                             Tache tache = new()
                             {
 
@@ -219,11 +216,11 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                                 Description = GetStringDBNull(sqlReader, 4),
                                 Statut = sqlReader.GetString(5),
                                 NoCategorie = sqlReader.GetInt32(6),
-                                //Background = (Brush)brushConverter.ConvertFromString(sqlReader.GetString(7))
+                                Background = bgBrush,
                                 NoCours = sqlReader.GetString(8),
                             };
 
-                            //tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
+                            tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
 
                             taches.Add(tache);
                         }

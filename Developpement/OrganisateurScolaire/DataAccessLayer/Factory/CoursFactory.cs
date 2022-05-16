@@ -116,7 +116,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                             Nom = sqlReader.GetString(2),
                             Description = GetStringDBNull(sqlReader, 3)
                         };
-                        cour.SetCouleur($"#{sqlReader.GetString(3)}");
+                        cour.SetCouleur($"#{sqlReader.GetString(4)}");
                     }
                 }
             }

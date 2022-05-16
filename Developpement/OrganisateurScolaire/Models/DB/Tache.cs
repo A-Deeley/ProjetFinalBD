@@ -19,10 +19,10 @@ namespace OrganisateurScolaire.Models
         public event PropertyChangedEventHandler PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string caller = null) => PropertyChanged?.Invoke(this, new(caller));
         #endregion
-
-        private string _noCours;
+        private string _noCours, _couleur;
         private string _coursName;
         private int _NoCategorie;
+
 
         public int ID { get; init; }
         public List<Rappel> Rappels { get; set; }
@@ -58,7 +58,10 @@ namespace OrganisateurScolaire.Models
             Description = description;
             NoCours = noCours;
             Categorie = categorie;
+
         }
-        public Tache() { }
+        public Tache() {
+
+        }
     }
 }

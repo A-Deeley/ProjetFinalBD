@@ -244,6 +244,7 @@ namespace OrganisateurScolaire.ViewModels
             TitreTache = tache.Titre;
             DateDebutTache = tache.DateDebut;
             DateFinTache = tache.DateFin;
+            StatutTache = tache.Statut;
             DescriptionTache = tache.Description;
             CoursTache = dal.CoursFactory().Get(tache.NoCours);
             CategorieTache = tache.Categorie;

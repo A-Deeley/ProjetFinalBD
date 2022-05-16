@@ -18,7 +18,7 @@
             <!--#region Catégorie-->
             <StackPanel Orientation="Horizontal" Margin="0,20">
                 <Label FontWeight="Bold" FontSize="14">Catégorie :</Label>
-                <Label Content="{Binding CategorieTache}" FontSize="14"></Label>
+                <Label Content="{Binding CategorieTache.Nom}" FontSize="14"></Label>
             </StackPanel>
             <!--#endregion-->
             <!--#region description-->
