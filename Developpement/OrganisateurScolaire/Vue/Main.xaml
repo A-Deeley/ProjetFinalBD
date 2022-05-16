@@ -69,11 +69,10 @@
                                                     </StackPanel>
                                                     <!--#endregion-->
                                                     <!--#region Description-->
-                                                    <GroupBox Header="Description" FontWeight="Bold" Margin="2, 2, 2, 10">
-                                                        <TextBlock FontWeight="Regular" Text="{Binding Message}" TextWrapping="Wrap" Height="62" Margin="3"/>
-                                                    </GroupBox>
-                                                    <Button Width="100">Voir tâche</Button>
-                                                    <!--#endregion-->
+                                                <GroupBox Header="Description" FontWeight="Bold" Margin="2, 2, 2, 10">
+                                                    <TextBlock FontWeight="Regular" Text="{Binding Message}" TextWrapping="Wrap" Height="62" Margin="3"/>
+                                                </GroupBox>
+                                                <!--#endregion-->
                                                 </StackPanel>
                                             </Border>
                                         </DataTemplate>

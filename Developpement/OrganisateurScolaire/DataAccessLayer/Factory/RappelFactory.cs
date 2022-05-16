@@ -97,11 +97,10 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                     rappels.Add(new()
                     {
                         ID = (int)sqlReader.GetInt64(0),
-                        IdTache = (int)sqlReader.GetInt64(1),
-                        DateRappel = sqlReader.GetDateTime(2),
-                        Titre = sqlReader.GetString(3),
-                        Message = sqlReader.GetString(4),
-                        Background = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(5)}")
+                        DateRappel = sqlReader.GetDateTime(1),
+                        Titre = sqlReader.GetString(2),
+                        Message = sqlReader.GetString(3),
+                        Background = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(4)}")
                 }) ;
                 }
             }
@@ -132,11 +131,10 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                         rappels.Add(new()
                         {
                             ID = (int)sqlReader.GetInt64(0),
-                            IdTache = (int)sqlReader.GetInt64(1),
-                            DateRappel = sqlReader.GetDateTime(2),
-                            Titre = sqlReader.GetString(3),
-                            Message = sqlReader.GetString(4),
-                            Background = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(5)}")
+                            DateRappel = sqlReader.GetDateTime(1),
+                            Titre = sqlReader.GetString(2),
+                            Message = sqlReader.GetString(3),
+                            Background = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(4)}")
                         });
                 }
             }
