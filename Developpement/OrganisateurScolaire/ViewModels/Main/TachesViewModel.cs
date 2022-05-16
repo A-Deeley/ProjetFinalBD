@@ -105,6 +105,7 @@ namespace OrganisateurScolaire.ViewModels
             this.OuvrirAjouter = new CommandeRelais(OuvrirAjouter_Execute, OuvrirAjouter_CanExecute);
             this.OuvrirModifier = new CommandeRelais(OuvrirModifier_Execute, OuvrirModifier_CanExecute);
             this.OuvrirDetail = new CommandeRelais(OuvrirDetail_Execute, OuvrirDetail_CanExecute);
+            nbTache = new DAL().ProcedureFactory().Get();
         }
         public void UpdateSessionDetails(Session selectedSession)
         {
