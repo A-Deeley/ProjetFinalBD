@@ -173,7 +173,7 @@
                                 <Button Content="Détail" Margin="8" Command="{Binding Taches.OuvrirDetail}"></Button>
                                 <Button Content="Ajouter" Margin="8" Command="{Binding Taches.OuvrirAjouter}"></Button>
                                 <Button Content="Modifier" Margin="8" Command="{Binding Taches.OuvrirModifier}"></Button>
-                                <Button Content="Supprimer" Margin="8"></Button>
+                                <Button Content="Supprimer" Margin="8" Command="{Binding Taches.Supprimer}"></Button>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>

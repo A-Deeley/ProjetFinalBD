@@ -89,6 +89,17 @@ namespace OrganisateurScolaire.ViewModels
             return true;
         }
         #endregion
+        #region Supprimer
+        public ICommand Supprimer { get; init; }
+        private void Supprimer_Execute(object sender)
+        {
+            new DAL().TacheFactory().DeleteTache(TacheSelectionner);
+        }
+        private bool Supprimer_CanExecute(object Sender)
+        {
+            return TacheSelectionner is not null;
+        }
+        #endregion
         #region OuvrirModifier
         ICommand _OuvrirModifier;
         public ICommand OuvrirModifier
@@ -104,7 +115,7 @@ namespace OrganisateurScolaire.ViewModels
         }
         private bool OuvrirModifier_CanExecute(object parameter)
         {
-            return true;
+            return TacheSelectionner is not null;
         }
         #endregion
         #region OuvrirDetail
@@ -122,7 +133,7 @@ namespace OrganisateurScolaire.ViewModels
         }
         private bool OuvrirDetail_CanExecute(object parameter)
         {
-            return true;
+            return TacheSelectionner is not null;
         }
         #endregion
         #region TacheSearchButton
@@ -141,6 +152,7 @@ namespace OrganisateurScolaire.ViewModels
             OuvrirModifier = new CommandeRelais(OuvrirModifier_Execute, OuvrirModifier_CanExecute);
             OuvrirDetail = new CommandeRelais(OuvrirDetail_Execute, OuvrirDetail_CanExecute);
             ResetSearchButton = new CommandeRelais(ResetSearchButton_Execute, ResetSearchButton_CanExecute);
+            Supprimer = new CommandeRelais(Supprimer_Execute, Supprimer_CanExecute);
             PropertyChanged += OnSearchFiltersChanged;
             AllTaches = new(new DAL().TacheFactory().GetTacheAujourdhui());
             nbTache = new DAL().ProcedureFactory().Get();

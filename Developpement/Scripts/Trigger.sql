@@ -20,11 +20,14 @@ END //
 DELIMITER ;
 
 DELIMITER //
-CREATE Trigger delCatTache after Delete On tbltaches
+CREATE Trigger delCatTache before Delete On tbltaches
 for each row
 BEGIN
 DELETE FROM `h22_ebd_projet1`.`tblcategorietaches`
-WHERE old.idTache;
+WHERE old.idTache=idTache;
+
+DELETE FROM `h22_ebd_projet1`.`tblrappels`
+WHERE old.idTache=idTache;
 END //
 
 DELIMITER ;

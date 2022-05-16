@@ -123,5 +123,43 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
             return cour;
         }
+
+        public IEnumerable<Cours> GetAll()
+        {
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery(
+                    "SELECT * " +
+                    "FROM tblCours cours " +
+                    "JOIN tblProgrammeSessionCours psc ON psc.idCours=cours.idCours"
+                    )
+                .Build();
+
+            List<Cours> cours = new();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+
+                using (MySqlDataReader sqlReader = command.ExecuteReader())
+                {
+                    DAL dal = new();
+                    while (sqlReader.Read())
+                    {
+
+                        Cours cour = new()
+                        {
+                            Id = (int)sqlReader.GetInt64(0),
+                            Numero = sqlReader.GetString(1),
+                            Nom = sqlReader.GetString(2),
+                            Description = GetStringDBNull(sqlReader, 3)
+                        };
+                        cours.Add(cour);
+                    }
+                }
+            }
+
+            return cours;
+        }
     }
 }
