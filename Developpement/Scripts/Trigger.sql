@@ -18,3 +18,13 @@ WHERE `idTache` = old.idtache;
 
 END //
 DELIMITER ;
+
+DELIMITER //
+CREATE Trigger delCatTache after Delete On tbltaches
+for each row
+BEGIN
+DELETE FROM `h22_ebd_projet1`.`tblcategorietaches`
+WHERE old.idTache;
+END //
+
+DELIMITER ;

@@ -232,5 +232,22 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
             return taches;
         }
+
+        /// <summary>
+        /// Deletes the tache from the database.
+        /// </summary>
+        /// <param name="tache">The categorie to delete.</param>
+        /// <returns>True if the update was successful, false otherwise.</returns>
+        public bool DeleteTache(Tache tache)
+        {
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                .SetQuery("DELETE FROM tbltaches WHERE id=@id")
+                .AddParameter("@id", tache.ID)
+                .Build();
+
+            return ExecuteNonQuery(command, 1);
+        }
     }
 }
