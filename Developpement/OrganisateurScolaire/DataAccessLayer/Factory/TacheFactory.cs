@@ -138,7 +138,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// Insert et update de tache
         /// </summary>
         /// <param name="tache">La tache </param>
-        public void Save(Tache tache)
+        public void Save(Tache tache, int idCours)
         {
             //Ajouter
             if (tache.ID == 0)
@@ -147,8 +147,8 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                  QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                "Insert into tbltaches (noCours,idStatut,titre, dateFin, description, noCategorie) values (@noCours,@idStatut,@titre, @dateFin, @description, @noCategorie)")
-                .AddParameter("@noCours", tache.NoCours)
+                "Insert into tbltaches (idCours,idStatut,titre, dateFin, description, idCategorie) values (@noCours,@idStatut,@titre, @dateFin, @description, @noCategorie)")
+                .AddParameter("@noCours", idCours)
                 .AddParameter("@idStatut", 0)
                 .AddParameter("@titre", tache.Titre)
                 .AddParameter("@dateFin", tache.DateFin)
@@ -249,7 +249,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("DELETE FROM tbltaches WHERE id=@id")
+                .SetQuery("DELETE FROM tbltaches WHERE idTache=@id")
                 .AddParameter("@id", tache.ID)
                 .Build();
 

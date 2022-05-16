@@ -35,13 +35,12 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
                 using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
-                    sqlReader.Read();
-
-                    programme = new()
-                    {
-                         Numero = sqlReader.GetString(0),
-                         Nom = sqlReader.GetString(1)
-                    };
+                    if (sqlReader.Read())
+                        programme = new()
+                        {
+                             Numero = sqlReader.GetString(0),
+                             Nom = sqlReader.GetString(1)
+                        };
                 }
             }
 
@@ -72,13 +71,12 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
                 using (MySqlDataReader sqlReader = command.ExecuteReader())
                 {
-                    sqlReader.Read();
-
-                    programme = new()
-                    {
-                        Numero = sqlReader.GetString(0),
-                        Nom = sqlReader.GetString(1)
-                    };
+                    if (sqlReader.Read())
+                        programme = new()
+                        {
+                            Numero = sqlReader.GetString(0),
+                            Nom = sqlReader.GetString(1)
+                        };
                 }
             }
 

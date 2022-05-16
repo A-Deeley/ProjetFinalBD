@@ -185,7 +185,7 @@ namespace OrganisateurScolaire.ViewModels
         private void AjouterTache_Execute(object sender)
         {
             Tache nouvelleTache = new Tache(IdTache, TitreTache, DateFinTache, DescriptionTache, CoursTache.Numero, CategorieTache);
-            dal.TacheFactory().Save(nouvelleTache);
+            dal.TacheFactory().Save(nouvelleTache, CoursTache.Id);
         }
         private bool AjouterTache_CanExecute(object parameter)
         {
@@ -252,7 +252,7 @@ namespace OrganisateurScolaire.ViewModels
             if(Affichage == "Modifier")
             {
                 Categories = new(dal.CategorieFactory().GetAll());
-                //LesCours = new (dal.CoursFactory().GetByProgramme(base.SelectedSession.ID));
+                LesCours = new(dal.CoursFactory().GetAll());
                 BoutonTitreTache = "Modifier";
                 Ajouter userControl = new Ajouter();
                 UserControlAfficher = userControl;
@@ -265,8 +265,8 @@ namespace OrganisateurScolaire.ViewModels
                 ListeRappel rappelControl = new ListeRappel();
                 RappelOption = rappelControl;
 
-                this.AfficherAjouterRappel = new CommandeRelais(AfficherAjouterRappel_Execute, AfficherAjouterRappel_CanExecute);
-                this.AjouterRappel = new CommandeRelais(AjouterRappel_Execute, AjouterRappel_CanExecute);
+                AfficherAjouterRappel = new CommandeRelais(AfficherAjouterRappel_Execute, AfficherAjouterRappel_CanExecute);
+                AjouterRappel = new CommandeRelais(AjouterRappel_Execute, AjouterRappel_CanExecute);
             }
         }
 
@@ -279,9 +279,9 @@ namespace OrganisateurScolaire.ViewModels
             DateFinTache = DateTime.Now;
             BoutonTitreTache = "Ajouter";
             Categories = new(dal.CategorieFactory().GetAll());
-            //LesCours = new (dal.CoursFactory().GetByProgramme(base.SelectedSession.ID));
+            LesCours = new(dal.CoursFactory().GetAll());
             IdTache = 0;
-            this.AjouterTache = new CommandeRelais(AjouterTache_Execute, AjouterRappel_CanExecute);
+            AjouterTache = new CommandeRelais(AjouterTache_Execute, AjouterTache_CanExecute);
             Ajouter userControl = new Ajouter();
             UserControlAfficher = userControl;
         }
