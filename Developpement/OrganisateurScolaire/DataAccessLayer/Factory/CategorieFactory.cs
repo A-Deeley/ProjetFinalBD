@@ -53,13 +53,13 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// Get by id
         /// </summary>
         /// <returns></returns>
-        public Categorie Get(string value)
+        public Categorie Get(int value)
         {
             // Initialize query.
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("SELECT nom, id FROM tblCategories where nom=@value")
+                .SetQuery("SELECT nom, id FROM tblCategories where id =@value")
                 .AddParameter("@value", value)
                 .Build();
 

@@ -144,7 +144,7 @@
                             <!--#endregion-->
                         </Grid>
                         <!--#region grille de tache -->
-                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Taches.AllTaches}">
+                        <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Taches.AllTaches}" SelectedItem="{Binding Taches.TacheSelectionner}">
                             <DataGrid.RowStyle>
                                 <Style TargetType="DataGridRow">
                                     <Setter Property="Background" Value="{Binding Background}"/>
@@ -155,7 +155,7 @@
                                 <DataGridTextColumn Header="Tâche" Width="*" Binding="{Binding Titre}"/>
                                 <DataGridTextColumn Header="Statut" Width="*" Binding="{Binding Statut}"/>
                                 <DataGridTextColumn Header="Cours" Width="*" Binding="{Binding CoursName}"/>
-                                <DataGridTextColumn Header="Catégorie" Width="*" Binding="{Binding Categorie}"/>
+                                <DataGridTextColumn Header="Catégorie" Width="*" Binding="{Binding Categorie.Nom}"/>
                             </DataGrid.Columns>
                         </DataGrid>
                         <!--#endregion-->
@@ -163,12 +163,17 @@
                     <!--#endregion-->
                     <!--#region Gerer taches-->
                     <StackPanel Grid.Column="1" >
-                        <syncfusion:CalendarEdit Name="calendar" Height="300"/>
+                        <syncfusion:CalendarEdit Name="calendar" Height="250"/>
                         <GroupBox Header="Gérer les tâches">
                             <StackPanel>
-                                <Button Content="Ajouter" Margin="10"></Button>
-                                <Button Content="Modifier" Margin="10"></Button>
-                                <Button Content="Supprimer" Margin="10"></Button>
+                                <StackPanel Orientation="Horizontal"> 
+                                    <Label>Nombre tache :</Label>
+                                    <Label Content="{Binding Taches.nbTache}"></Label>
+                                </StackPanel>
+                                <Button Content="Détail" Margin="8" Command="{Binding Taches.OuvrirDetail}"></Button>
+                                <Button Content="Ajouter" Margin="8" Command="{Binding Taches.OuvrirAjouter}"></Button>
+                                <Button Content="Modifier" Margin="8" Command="{Binding Taches.OuvrirModifier}"></Button>
+                                <Button Content="Supprimer" Margin="8"></Button>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>

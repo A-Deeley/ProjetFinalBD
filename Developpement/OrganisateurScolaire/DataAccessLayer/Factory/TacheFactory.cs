@@ -23,6 +23,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
         /// <returns></returns>
         public IEnumerable<Tache> GetAllBySession(Session session)
         {
+            DAL dal = new();
             var command =
                 QueryBuilder
                 .Init(Connection)
@@ -58,7 +59,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                             DateFin = sqlReader.GetDateTime(3),
                             Description = GetStringDBNull(sqlReader, 4),
                             Statut = sqlReader.GetString(5),
-                            Categorie = sqlReader.GetString(6),
+                            NoCategorie = sqlReader.GetInt32(6),
                             Background = bgBrush
                         });
                     }
@@ -110,7 +111,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                                 DateFin = sqlReader.GetDateTime(3),
                                 Description = GetStringDBNull(sqlReader, 4),
                                 Statut = sqlReader.GetString(5),
-                                Categorie = sqlReader.GetString(6),
+                                NoCategorie = sqlReader.GetInt32(6),
                                 Background = cour.CouleurBrush
                             };
                             tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
@@ -140,12 +141,13 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                  QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                "Insert into tbltaches (noCours,idStatut,titre, dateFin, description) values (@noCours,@idStatut,@titre, @dateFin, @description)")
+                "Insert into tbltaches (noCours,idStatut,titre, dateFin, description, noCategorie) values (@noCours,@idStatut,@titre, @dateFin, @description, @noCategorie)")
                 .AddParameter("@noCours", tache.NoCours)
                 .AddParameter("@idStatut", 0)
                 .AddParameter("@titre", tache.Titre)
                 .AddParameter("@dateFin", tache.DateFin)
                 .AddParameter("@description", tache.Description)
+                .AddParameter("@noCategorie", tache.Categorie.ID)
                 .Build();
 
 
@@ -160,13 +162,14 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                "Update tbltaches set noCours = @noCours,idStatut = @idStatut ,titre = @titre , description = @description , dateFin = @dateFin, where idTache = @idTache")
+                "Update tbltaches set noCours = @noCours,idStatut = @idStatut ,titre = @titre , description = @description , dateFin = @dateFin, noCategorie= @noCategorie where idTache = @idTache")
                 .AddParameter("@idTache", tache.ID)
                 .AddParameter("@noCours", tache.NoCours)
                 .AddParameter("@titre", tache.Titre)
                 .AddParameter("@idStatut", 0)
                 .AddParameter("@dateFin", tache.DateFin)
                 .AddParameter("@description", tache.Description)
+                .AddParameter("@noCategorie", tache.Categorie.ID)
                 .Build();
                  
                 ExecuteNonQuery(command, 1);
@@ -174,6 +177,64 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 // TODO: Update entry in tblCategorieTaches
             }
 
+        }
+
+        /// <summary>
+        /// Gets all the Taches today
+        /// </summary>
+        /// <returns>A list of Taches.</returns>
+        public IEnumerable<Tache> GetTacheAujourdhui()
+        {
+            var brushConverter = new BrushConverter();
+            // TODO: Fix dis (refaire schéma?) --Andy
+            var command =
+                QueryBuilder
+                .Init(Connection)
+                //.SetQuery("Select * from  TacheAujourdhui;")
+                .SetQuery(
+                    "SELECT Tache.idTache ,Tache.Titre, Tache.DateDebut, Tache.DateFin, Tache.description, Statut.etat, Tache.idCategorie ,Cours.couleur, Cours.NoCours  FROM tblTaches as Tache " +
+                    "join tblcours as Cours on Tache.idCours = Cours.idCours " +
+                    "join tblStatuts as Statut on Tache.idStatut = Statut.idStatut " +
+                    "where Date(datefin) = current_date()")
+                .Build();
+
+            List<Tache> taches = new List<Tache>();
+            using (command.Connection)
+            {
+                command.Connection.Open();
+                try
+                {
+                    using (MySqlDataReader sqlReader = command.ExecuteReader())
+                    {
+                        DAL dal = new();
+                         while (sqlReader.Read())
+                        {
+                            Tache tache = new()
+                            {
+
+                                ID = (int)sqlReader.GetInt64(0),
+                                Titre = sqlReader.GetString(1),
+                                DateDebut = GetDateTimeDBNull(sqlReader, 2),
+                                DateFin = sqlReader.GetDateTime(3),
+                                Description = GetStringDBNull(sqlReader, 4),
+                                Statut = sqlReader.GetString(5),
+                                NoCategorie = sqlReader.GetInt32(6),
+                                //Background = (Brush)brushConverter.ConvertFromString(sqlReader.GetString(7))
+                                NoCours = sqlReader.GetString(8),
+                            };
+
+                            //tache.Rappels = new(dal.RappelFactory().GetRappelByTache(tache));
+
+                            taches.Add(tache);
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
+
+            return taches;
         }
     }
 }

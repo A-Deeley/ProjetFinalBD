@@ -15,6 +15,19 @@ namespace OrganisateurScolaire.DataAccessLayer
         private CoursFactory _coursFactory;
         private ProgrammeFactory _programmeFactory;
         private SessionFactory _sessionFactory;
+        private ProcedureFactory _procedureFactory;
+
+        /// <summary>
+        /// Gets the procedure factory instance.
+        /// </summary>
+        /// <returns>The procedure factory instance.</returns>
+        public ProcedureFactory ProcedureFactory()
+        {
+            if (_procedureFactory is null)
+                _procedureFactory = new ProcedureFactory();
+
+            return _procedureFactory;
+        }
 
         /// <summary>
         /// Gets the categorie factory instance.
@@ -89,4 +102,5 @@ namespace OrganisateurScolaire.DataAccessLayer
             return _programmeFactory;
         }
     }
+   
 }

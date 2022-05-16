@@ -40,10 +40,10 @@ VALUES
 (0, 'En Cours'),
 (1, 'Terminé');
 
-INSERT INTO tblTaches (idCours, idStatut, titre, dateFin, description) VALUES
-('1', 0, 'Test Tache0', '2022-05-13', 'Test Description blah!'),
-('1', 0, 'Test Tache1', '2022-05-14', 'Test Description loll!'),
-('1', 0, 'Test Tache2', '2022-05-15', 'Test Description ptdr!');
+INSERT INTO tblTaches (idCours, idStatut, idCategorie ,titre, dateFin, description) VALUES
+('1', 0, 2,'Test Tache0', '2022-05-13', 'Test Description blah!'),
+('1', 0, 2,'Test Tache1', '2022-05-14', 'Test Description loll!'),
+('1', 0,3,'Test Tache2', '2022-05-15', 'Test Description ptdr!');
 
 INSERT INTO tblRappels (idTache, dateRappel, titre, message) VALUES
 (3, '2022-05-12', 'Test Rappel 3', 'Ceci est un rappel pour la tache 3.');

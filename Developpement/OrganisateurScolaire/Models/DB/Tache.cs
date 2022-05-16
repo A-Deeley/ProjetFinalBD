@@ -22,6 +22,8 @@ namespace OrganisateurScolaire.Models
 
         private string _noCours;
         private string _coursName;
+        private int _NoCategorie;
+
         public int ID { get; init; }
         public List<Rappel> Rappels { get; set; }
         public string Statut { get; init; }
@@ -35,7 +37,12 @@ namespace OrganisateurScolaire.Models
             get => _noCours;
             set { _noCours = value; CoursName = new DAL().CoursFactory().GetName(value); OnPropertyChanged(); }
         }
-        public string Categorie { get; set; }
+        public int NoCategorie
+        {
+            get { return _NoCategorie; }
+            set { _NoCategorie = value; Categorie = new DAL().CategorieFactory().Get(value); OnPropertyChanged(); }
+        }
+        public Categorie Categorie { get; set; }
         public string CoursName 
         {
             get => _coursName;
@@ -43,7 +50,7 @@ namespace OrganisateurScolaire.Models
         }
 
 
-        public Tache(int iD , string titre, DateTime dateFin, string description, string noCours, string categorie)
+        public Tache(int iD , string titre, DateTime dateFin, string description, string noCours, Categorie categorie)
         {
             ID = iD;
             Titre = titre;
