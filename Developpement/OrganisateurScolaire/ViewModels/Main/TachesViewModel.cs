@@ -16,8 +16,34 @@ namespace OrganisateurScolaire.ViewModels
     {
         private Tache _TacheSelectionner;
         private int _nbTache;
+        private string _tacheSearchBar;
+        private List<Cours> _searchByCoursOptions;
+        private List<Categorie> _searchByCategorieOptions;
+        private Cours _searchByCoursSelected;
+        private Categorie _searchByCategorieSelected;
         private ObservableCollection<Tache> _allTaches;
 
+
+        public List<Cours> SearchByCoursOptions
+        {
+            get => _searchByCoursOptions;
+            set { _searchByCoursOptions = value; OnPropertyChanged(); }
+        }
+        public List<Categorie> SearchByCategorieOptions
+        {
+            get => _searchByCategorieOptions;
+            set { _searchByCategorieOptions = value; OnPropertyChanged(); }
+        }
+        public Cours SearchByCoursSelected
+        {
+            get => _searchByCoursSelected;
+            set { _searchByCoursSelected = value; OnPropertyChanged(); }
+        }
+        public Categorie SearchByCategorieSelected
+        {
+            get => _searchByCategorieSelected;
+            set { _searchByCategorieSelected = value; OnPropertyChanged(); }
+        }
         public ObservableCollection<Tache> AllTaches
         {
             get => _allTaches;
@@ -32,6 +58,12 @@ namespace OrganisateurScolaire.ViewModels
         {
             get { return _nbTache; }
             set { _nbTache = value; OnPropertyChanged(); }
+        }
+        public ICommand TacheSearchButton { get; init; }
+        public string TacheSearchBar
+        {
+            get => _tacheSearchBar;
+            set { _tacheSearchBar = value; OnPropertyChanged(); }
         }
 
         #region OuvrirAjouter
