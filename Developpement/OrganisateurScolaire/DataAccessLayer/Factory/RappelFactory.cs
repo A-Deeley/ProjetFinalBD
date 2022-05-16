@@ -82,7 +82,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
             var command =
                 QueryBuilder
                 .Init(Connection)
-                .SetQuery("select * from RappelTache;")
+                .SetQuery("Call RappelTache;")
                 .Build();
 
             // Fetch the rappels from the database.
