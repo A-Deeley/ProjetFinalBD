@@ -63,5 +63,15 @@ namespace OrganisateurScolaire.Models
         public Tache() {
 
         }
+
+        public bool Contains(string value)
+        {
+            return $"{ID} {Statut} {Titre} {Description} {CoursName} {Categorie.Nom} {DateDebut} {DateFin} {NoCours}".ToLower().Contains(value.ToLower());
+        }
+
+        public override string ToString()
+        {
+            return CoursName;
+        }
     }
 }

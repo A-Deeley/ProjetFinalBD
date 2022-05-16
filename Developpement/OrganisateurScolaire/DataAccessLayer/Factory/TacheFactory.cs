@@ -28,7 +28,7 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
                 QueryBuilder
                 .Init(Connection)
                 .SetQuery(
-                    "SELECT taches.idTache, titre, dateDebut, dateFin, taches.description, statuts.etat, categories.nom, cours.couleur, cours.nomCours " +
+                    "SELECT taches.idTache, titre, dateDebut, dateFin, taches.description, statuts.etat, categories.id, cours.couleur, cours.noCours " +
                     "FROM tblTaches taches " +
                     "JOIN tblCours cours ON cours.idCours=taches.idCours " +
                     "JOIN tblStatuts statuts ON statuts.idStatut=taches.idStatut " +
@@ -43,30 +43,36 @@ namespace OrganisateurScolaire.DataAccessLayer.Factory
 
             using (command.Connection)
             {
-                command.Connection.Open();
+                try
+                {
 
-                using (MySqlDataReader sqlReader = command.ExecuteReader())
-                    while (sqlReader.Read())
-                    {
-                        var brushConverter = new BrushConverter();
-                        Brush bgBrush = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(7)}");
-                        bgBrush.Freeze();
-                        taches.Add(new()
+
+                    command.Connection.Open();
+
+                    using (MySqlDataReader sqlReader = command.ExecuteReader())
+                        while (sqlReader.Read())
                         {
-                            ID = (int)sqlReader.GetInt64(0),
-                            Titre = sqlReader.GetString(1),
-                            DateDebut = GetDateTimeDBNull(sqlReader, 2),
-                            DateFin = sqlReader.GetDateTime(3),
-                            Description = GetStringDBNull(sqlReader, 4),
-                            Statut = sqlReader.GetString(5),
-                            NoCategorie = sqlReader.GetInt32(6),
-                            Background = bgBrush
-                        });
-                    }
+                            var brushConverter = new BrushConverter();
+                            Brush bgBrush = (Brush)brushConverter.ConvertFromString($"#{sqlReader.GetString(7)}");
+                            bgBrush.Freeze();
+                            taches.Add(new()
+                            {
+                                ID = (int)sqlReader.GetInt64(0),
+                                Titre = sqlReader.GetString(1),
+                                DateDebut = GetDateTimeDBNull(sqlReader, 2),
+                                DateFin = sqlReader.GetDateTime(3),
+                                Description = GetStringDBNull(sqlReader, 4),
+                                Statut = sqlReader.GetString(5),
+                                NoCategorie = (int)sqlReader.GetInt64(6),
+                                Background = bgBrush,
+                                NoCours = sqlReader.GetString(8)
+                            });
+                        }
 
+                }
+                catch (Exception ex) { }
+                return taches;
             }
-
-            return taches;
         }
 
         /// <summary>

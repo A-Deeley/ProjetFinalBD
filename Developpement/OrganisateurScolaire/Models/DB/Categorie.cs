@@ -24,5 +24,10 @@ namespace OrganisateurScolaire.Models
             set { _nom = value; OnPropertyChanged(); }
         }
         public int ID { get; set; }
+
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }

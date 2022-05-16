@@ -48,7 +48,7 @@ namespace OrganisateurScolaire.ViewModels
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void OnSelectedSessionChanged(object sender, PropertyChangedEventArgs e)
+        protected async void OnSelectedSessionChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName != nameof(SelectedSession)) return;
             // If the programme is null, fill it the first time.
@@ -58,8 +58,8 @@ namespace OrganisateurScolaire.ViewModels
                 SelectedSession.Programme = dal.ProgrammeFactory().GetBySession(SelectedSession);
             }
 
-            Accueil.UpdateSessionDetails(SelectedSession);
-            Taches.UpdateSessionDetails(SelectedSession);
+            await Task.Run(() => Accueil.UpdateSessionDetails(SelectedSession));
+            await Task.Run(() => Taches.UpdateSessionDetails(SelectedSession));
         }
     }
 }

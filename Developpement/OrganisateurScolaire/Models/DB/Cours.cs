@@ -44,5 +44,10 @@ namespace OrganisateurScolaire.Models
 
             return allRappels;
         }
+
+        public override string ToString()
+        {
+            return Nom;
+        }
     }
 }
